@@ -1,0 +1,15 @@
+// гдавный файл ,сюжа импортируем все стили с проекта
+
+//через дерективу @use подключаем файлы стилей
+@use 'normalize';
+@use 'fonts';
+@use 'variables';
+@use 'utils';
+@use 'globals';
+
+body {
+  background-color: aquamarine;
+  p{
+    color: red;
+  }
+}
