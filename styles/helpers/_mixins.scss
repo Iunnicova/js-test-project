@@ -1,0 +1,26 @@
+//миксины адаптивного размера шрифта
+
+
+@use 'sass:math';
+
+//аргументы максимального и минимального размера шрифта впикс пикселях
+@mixin fluid-text($max: 48, $min: 16) {
+  //мфксимальный и минимальный размер окон
+  $maxViewportWidth: 1920;
+  $minViewportWidth: 390;
+
+  $maxSize: math.div($max, 16);
+  $minSize: math.div($min, 16);
+  $maxWidth: math.div($maxViewportWidth, 16);
+  $minWidth: math.div($minViewportWidth, 16);
+
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+  //1 и 3 аргумент ограничивает минимальный и максимальный диапазон значения шрифта
+  font-size: clamp(
+    #{$minSize * 1rem},
+    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},  //второй аргумент указывает рекомендуемый размер шрифта
+    #{$maxSize * 1rem}
+  );
+}
