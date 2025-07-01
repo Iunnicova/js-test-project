@@ -190,8 +190,8 @@ svg * {
   font-display: swap;
 }
 @font-face {
-  font-family: "Playwrite";
-  src: url("../fonts/PlaywriteHU-Regular.woff2") format("woff2");
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Italic.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;

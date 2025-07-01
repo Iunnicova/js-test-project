@@ -1,4 +1,4 @@
-//подключаем шрифты
+//подключаем шрифты преобразуем их в формат ('woff2') на сайте https://transfonter.org/ смотреть видео про шрифты с 15-17 минуты https://www.youtube.com/watch?v=hkYzqTKnSIg&t=1041s
 
 @font-face {
  font-family: 'Kumbh Sans';
@@ -9,8 +9,8 @@
 }
 
 @font-face {
- font-family: 'Playwrite';
- src: url('../fonts/PlaywriteHU-Regular.woff2')format('woff2');
+ font-family: 'Roboto';
+ src: url('../fonts/Roboto-Italic.woff2')format('woff2');
  font-weight: 500;
  font-style: normal;
  font-display: swap;
