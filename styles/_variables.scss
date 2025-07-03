@@ -1,0 +1,38 @@
+@use "helpers" as *;
+
+//пишем силектор корневого элемента переменные цветов
+:root {
+  --color-light: FFFFFF;
+  --color-dark: #141414;
+  //далее переменные по фигме
+  --color-dark-10: #1a1a1a;
+  --color-dark-15: #262626;
+  --color-dark-20: #333333;
+  --color-dark-40: #666666;
+
+  --color-gray-50: #7e7e81;
+  --color-gray-60: #98989a;
+
+  --color-accent: #ffd11a;
+
+  --color-likeCount: #ff5500;
+
+  //семейство шрифтов
+  --font-family-base: "Inter", sans-serif;
+  --font-family-accent: "Kumbh Sans", sans-serif;
+
+  //вместо 'Kumbh Sans' 500
+  //
+
+  // параменты контентной сетки контейнера padding 16 это расстояние между основным размером и контертом буз такой конструкции переменная работать не будет #{rem(1600)} 42:00
+  --container-width: #{rem(1600)};
+  --container-padding-x: #{rem(16)}; // горизонтальные границы внутриннего контейнера мобильная версия
+
+  //микро-анимация транзишен
+  --transition-duration: 0.2s;
+
+  // переопределяем на 1280
+  @include laptop {
+    --container-width: #{rem(1280)};
+  }
+}

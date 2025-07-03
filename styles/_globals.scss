@@ -1,3 +1,25 @@
+//глобальные стили проекта
+
+@use 'helpers' as *;
+
+//! Проверяем работу миксинов
+// body {
+//   padding: 100px;
+// }
+
+// p {
+//   @include fluid-text(48, 16);
+
+//   width: rem(100);
+
+//   @include mobile {
+//     background-color: rgb(109, 70, 70);
+//   }
+// }
+
+//! от дископа и мобилоная версии 47:21
 body {
-  padding: 100px;
+  @include fluid-text(18, 14);
+
+  font-family: var(--font-family-base);
 }
