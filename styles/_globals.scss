@@ -1,6 +1,6 @@
 //глобальные стили проекта
 
-@use 'helpers' as *;
+@use "helpers" as *;
 
 //! Проверяем работу миксинов
 // body {
@@ -17,9 +17,96 @@
 //   }
 // }
 
-//! от дископа и мобилоная версии 47:21
+//! 18,14 от дископа до мобилоная версии 47:21
 body {
   @include fluid-text(18, 14);
 
+  letter-spacing: -0.03em;
   font-family: var(--font-family-base);
+  background-color: var(--color-dark);
+  color: var(--color-gray-50);
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  color: var(--color-light);
+  
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  font-family: var(--font-family-accent);
+  font-weight: 500;
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  
+  font-weight: 600;
+}
+
+//размер такста от дисткопа до мобилки
+//line-height в проекте 120% это 1.2
+h1, .h1 {
+@include fluid-text(70, 30);
+line-height: 1.2;
+}
+
+h2, .h2 {
+@include fluid-text(58, 28);
+line-height: 1.3;
+}
+
+h3, .h3 {
+@include fluid-text(40, 24);
+}
+
+h4, .h4 {
+@include fluid-text(26, 18);
+}
+
+h5, .h5 {
+@include fluid-text(24, 18);
+}
+
+h6, .h6 {
+ @include fluid-text(20,16);
+}
+
+//плавность интерактивным элементам
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  color: inherit;
+
+  @include hover {
+    color: var(--color-accent);
+  }
+
+  &[class] {
+    text-decoration: none;
+  }
+}
+
+//состояние фокусировки c клавиатуры 57:50
+
+:focus-visible {
+  outline: rem(2) dashed var(--color-light);
+  outline-offset: rem(4);
+  transition-duration: 0s !important;
 }

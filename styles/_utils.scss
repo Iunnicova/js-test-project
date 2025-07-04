@@ -1,30 +1,29 @@
-@use "helpers" as *;
+@use 'helpers' as *;
 
-//! Утилитарные классы 
+//! Утилитарные классы
 // (Utility Classes) — это классы CSS, которые выполняют одно конкретное действие или вычисляют одно конкретное свойство. Их цели облегчить быструю и гибкую стилизацию элементов HTML, избегая написания повторяющегося CSS-кода и уменьшая размер CSS-файлов.
 
 .container {
-max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
-margin-inline: auto;
-padding: var(--container-padding-x);
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
 }
 
 // _mixin.scss
 .visually-hidden {
-@include visually-hidden;
+  @include visually-hidden;
 }
-
 
 //нужны для скрытия элемента на определенном диапазоне
 //!      ' !important ' допустимо использовать только для утилитарных классов
 .hidden-mobile {
-@include mobile {
-  display: none !important;
-}
+  @include mobile {
+    display: none !important;
+  }
 }
 
 .visible-mobile {
-@include mobile-aboye {
-  display: none !important;
-}
+  @include mobile-above {
+    display: none !important;
+  }
 }
