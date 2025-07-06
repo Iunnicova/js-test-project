@@ -7,6 +7,12 @@
 @use 'utils';
 @use 'globals';
 
+//подключаем файлы папки styles => blocks
+@use 'blocks/burger-button';
+@use 'blocks/button';
+@use 'blocks/header';
+@use 'blocks/icon';
+@use 'blocks/logo';
 
 //!Проверяем подключения
 // body {

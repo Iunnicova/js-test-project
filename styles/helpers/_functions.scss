@@ -7,25 +7,30 @@
   @if math.is-unitless($pixel) {
     @return math.div($pixel, 16) + rem; // Возвращаем значение в rem, если число без единиц
   } @else {
-    @error 'Не используйте единицы измерения при работе с функцией rem()! Передавайте аргументом только числа.' //! Ошибка, если переданы единицы измерения
+    @error 'Не используйте единицы измерения при работе с функцией rem()! Передавайте аргументом только числа.' //! Ошибка, если переданы единицы измерения;
   }
 }
 
 @function fluid($max: 100, $min: 10) {
   $maxViewportWidth: 1920; // Максимальная ширина экрана в px
-  $minViewportWidth: 390;  // Минимальная ширина экрана в px
+  $minViewportWidth: 390; // Минимальная ширина экрана в px
 
   $maxSize: math.div($max, 16); // Максимальный размер в rem
   $minSize: math.div($min, 16); // Минимальный размер в rem
   $maxWidth: math.div($maxViewportWidth, 16); // Максимальная ширина в rem
   $minWidth: math.div($minViewportWidth, 16); // Минимальная ширина в rem
 
-  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth)); // Наклон линии изменения размера
+  $slope: math.div(
+    ($maxSize - $minSize),
+    ($maxWidth - $minWidth)
+  ); // Наклон линии изменения размера
   $yAxisIntersection: -$minWidth * $slope + $minSize; // Пересечение с осью Y
 
   @return clamp(
-    #{$minSize * 1rem}, //! Минимальное значение
-    #{$yAxisIntersection * 1rem} + #{$slope * 100vw}, //! Отзывчивое значение (зависит от ширины экрана)
+    #{$minSize * 1rem},
+    //! Минимальное значение
+    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+    //! Отзывчивое значение (зависит от ширины экрана)
     #{$maxSize * 1rem} //! Максимальное значение
   );
 }

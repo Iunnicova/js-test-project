@@ -1,0 +1,11 @@
+//стилилизация шапки
+
+@use '../helpers' as *;
+
+.header {
+  &__promo {
+    padding-block: rem(20); //вверх низ
+    text-align: center; //центрируем самый вверхний текст
+    border-bottom: var(--border); //рамка под вверхним текстом
+  }
+}
