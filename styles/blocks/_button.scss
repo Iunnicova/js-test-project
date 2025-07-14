@@ -1,0 +1,39 @@
+//стилизация кнопок
+
+@use '../helpers' as *;
+
+//кнопка "View Blod"
+.button {
+  display: inline-flex;
+  justify-content: center;
+  // min-width: rem(137);
+  padding: rem(18) rem(24);
+  font-size: rem(18);
+  color: var(--color-gray-60);
+  white-space: nowrap;
+  background-color: var(--color-dark);
+  border: var(--border);
+  border-radius: rem(12);
+
+  //версия планшет
+  @include laptop {
+    padding: rem(14) rem(20);
+    font-size: rem(14);
+    border-radius: rem(8);
+  }
+
+  @include hover {
+    color: var(--color-accent);
+    background-color: var(--color-gray-18);
+    border-color: var(--color-accent);
+  }
+
+  //стилизуем акцентную кнопку
+  &--accent {
+    font-weight: 500;
+    color: var(--color-dark);
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    border-radius: rem(8);
+  }
+}

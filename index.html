@@ -26,16 +26,21 @@
       </div>
       <div class="header__body">
         <div class="header__body-inner container">
-          <a class="header__logo logo" href="/" aria-label="Home" title="Home">
+          <a 
+          class="header__logo logo"
+           href="/" 
+           aria-label="Home" 
+           title="Home"
+           >
             <img
-              class="logo__image"
+               class="logo__image"
               src="./images/Logo.svg"
               alt=""
               width="179"
-              height="50"
+              height="50" 
             />
           </a>
-          <div class="header__overlay">
+          <div class="header__overlay is-active">
             <nav class="header__menu">
               <ul class="header__menu-list">
                 <li class="header__menu_item">
@@ -60,16 +65,18 @@
             </a>
           </div>
 
-          <button
-            class="header__burger-button burger-button visible-mobile"
-            type="button"
-            aria-label="Open menu"
-            title="Open menu"
-          >
-            <span class="burger-button__line"></span>
-            <span class="burger-button__line"></span>
-            <span class="burger-button__line"></span>
-          </button>
+        <button
+          class="header__burger-button burger-button visible-mobile"
+          type="button"
+          aria-label="Open menu"
+          title="Open menu"
+          data-js-header-burger-button
+        >
+        <!-- бургер кнопки -->
+          <span class="burger-button__line"></span>
+          <span class="burger-button__line"></span>
+          <span class="burger-button__line"></span>
+        </button>
         </div>
       </div>
     </header>

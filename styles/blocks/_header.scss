@@ -2,10 +2,80 @@
 
 @use '../helpers' as *;
 
+//вверхний блок шапки где желтая стрелка
 .header {
   &__promo {
     padding-block: rem(20); //вверх низ
     text-align: center; //центрируем самый вверхний текст
     border-bottom: var(--border); //рамка под вверхним текстом
+
+    //мобильная версия
+    @include mobile {
+      padding-block: rem(14); //вверх низ
+    }
+  }
+
+  &__body {
+    padding-block: rem(24);
+    background-color: var(--color-dark-10);
+
+    &-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      column-gap: 1rem;
+    }
+  }
+
+  //на экранах не мобильных устройств отключили обвертку "header__overlay"
+  &__overlay {
+    @include mobile-above {
+      display: contents; //делает элемент «прозрачным» для макета
+    }
+
+    //убираем кнопку с мобильной версии
+    @include mobile {
+      position: fixed;
+
+      
+      &:not(.is-active) {
+        @include hide;
+
+        translate: 100%; //для бургер меню свойство сдвигает элемент на 100% вправо
+      }
+    }
+  }
+
+  //Дом Новости Подкасты Ресурсы
+  &__menu {
+    &-list {
+      display: flex;
+      align-items: center;
+      column-gap: rem(16);
+
+      @include laptop {
+        column-gap: rem(6);
+      }
+    }
+
+    //внутри  надписть "Дом Новости Подкасты Ресурсы"
+    &-link {
+      padding: rem(14) rem(24);
+      color: var(--color-gray-50);
+
+      @include laptop {
+        padding: rem(10) rem(18);
+      }
+
+      //фон активной ссылки "Дом"
+      &.is-active {
+        color: var(--color-light);
+        font-weight: 500;
+        background-color: var(--color-dark);
+        border: var(--border);
+        border-radius: rem(10);
+        pointer-events: none;
+      }
+    }
   }
 }
