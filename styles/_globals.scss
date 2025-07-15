@@ -17,6 +17,14 @@
 //   }
 // }
 
+
+//когда будет открыватся меню оверлей  основной скрол страницы по вертикале будет замерать
+html {
+  &.is-lock {
+    overflow: hidden;
+  }
+}
+
 //! 18,14 от дископа до мобилоная версии 47:21
 body {
   @include fluid-text(18, 14);
@@ -136,6 +144,8 @@ button {
     &::before {
       @include abs-center;
       @include square(rem(44));
+
+      content: '';
     }
   }
 }

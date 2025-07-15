@@ -19,6 +19,10 @@
     padding-block: rem(24);
     background-color: var(--color-dark-10);
 
+    @include mobile {
+      padding-block: rem(20);
+    }
+
     &-inner {
       display: flex;
       justify-content: space-between;
@@ -33,11 +37,20 @@
       display: contents; //делает элемент «прозрачным» для макета
     }
 
-    //убираем кнопку с мобильной версии
+    // кнопкa с мобильной версии
     @include mobile {
       position: fixed;
+      inset: 0; //растянем ээлемент на весь экран
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      row-gap: 3rem;
+      padding: 1rem;
+      background-color: var(--color-dark-10);
+      transition-duration: var(
+        --transition-duration
+      ); //элемент появлялся и исчезал плавно
 
-      
       &:not(.is-active) {
         @include hide;
 
@@ -46,8 +59,13 @@
     }
   }
 
-  //Дом Новости Подкасты Ресурсы
+  //МЕНЮ Дом Новости Подкасты Ресурсы
   &__menu {
+
+@include mobile {
+  overflow-y: auto; //добавляем скрол на случай если меню расширется
+}
+
     &-list {
       display: flex;
       align-items: center;
@@ -55,6 +73,12 @@
 
       @include laptop {
         column-gap: rem(6);
+
+        //добавляем растояние между элементами списка меню
+        @include mobile {
+          flex-direction: column;
+          row-gap: 1rem;
+        }
       }
     }
 
@@ -76,6 +100,15 @@
         border-radius: rem(10);
         pointer-events: none;
       }
+    }
+  }
+
+  //уменьшаем кнопку "Contsct Us"
+  &__contact-us-link {
+    @include mobile {
+      width: 100%;
+      max-width: rem(300);
+      align-self: center; // чтто бы не съехал в сторону
     }
   }
 }
