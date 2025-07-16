@@ -4,9 +4,26 @@
 
 //вверхний блок шапки где желтая стрелка
 .header {
+position: sticky; //!прокрутка идет шапка на месте стоит не уходит вверх
+z-index: 100;//!прокрутка идет шапка на месте стоит не уходит вверх
+top: 0;//!прокрутка идет шапка на месте стоит не уходит вверх
+
+//?новыя фишка тень с вверху куда уходит при прокрутке основной контент что бы не слипалась
+animation-name: scrolling-header;
+animation-fill-mode: both;
+animation-timeline: scroll();
+animation-range: rem(100) rem(200); //анимация начинается с 100px вниз
+
+@keyframes scrolling-header {
+  to {
+box-shadow: 0 0 1rem 0 var(--color-dark-40);
+  }
+}
+
   &__promo {
     padding-block: rem(20); //вверх низ
     text-align: center; //центрируем самый вверхний текст
+    background-color: var(--color-dark); //!прокрутка идет шапка на месте стоит не уходит вверх
     border-bottom: var(--border); //рамка под вверхним текстом
 
     //мобильная версия
