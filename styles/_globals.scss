@@ -25,15 +25,25 @@ html {
   }
 }
 
-//! 18,14 от дископа до мобилоная версии 47:21
+// 18,14 от дископа до мобилоная версии 47:21
 body {
   @include fluid-text(18, 14);
 
+//!прижимаем footer к низу
+display: flex;
+flex-direction: column;
+//
   letter-spacing: -0.03em;
   font-family: var(--font-family-base);
   background-color: var(--color-dark);
   color: var(--color-gray-50);
 }
+
+main {
+  //!прижимаем footer к низу
+  flex-grow: 1;
+}
+
 
 h1,
 .h1,

@@ -1,4 +1,4 @@
-//стилилизация бургер меню
+//стилизация бургер меню
 
 @use '../helpers' as *;
 
@@ -8,7 +8,7 @@
   display: inline-flex;
   flex-direction: column; //выставляем элементы в колонку
   justify-content: space-between;
-  padding: rem(8.5) rem(4.25); //внутринние отступы бургер меню
+  padding: rem(8.5) rem(4.25); //внутренние отступы бургер меню
   color: var(--color-light);
   background-color: transparent;
   border: none;
@@ -22,7 +22,7 @@
     .burger-button__line {
       &:first-child {
         transform-origin: 0;  //делаем крестик ровным
-        rotate: 45deg; //поварачивает первую линию на 45 градусов
+        rotate: 45deg; //поворачивает первую линию на 45 градусов
         translate: 0.25em -0.1em;  //делаем крестик ровным
       }
 
@@ -31,7 +31,7 @@
       }
 
       &:last-child {
-         width: 0;  //уменьшаем третию линию до 0
+         width: 0;  //уменьшаем третью линию до 0
        }
     }
   }
@@ -41,7 +41,7 @@
     height: rem(2);
     background-color: currentColor;
     border-radius: 1rem;
-    transition-duration: var(--transition-duration); //для стелилизация активного состония бургег кнопки
+    transition-duration: var(--transition-duration); //для стилизация активного состояния бургер кнопки
 
     &:last-child  {
       width: 55%; //последнюю линию в бургер меню делаем короче
