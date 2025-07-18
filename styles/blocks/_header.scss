@@ -22,11 +22,11 @@
 
   &__promo {
     padding-block: rem(20); //вверх низ
-    text-align: center; //центрируем самый вверхний текст
+    text-align: center; //центрируем самый верхний текст
     background-color: var(
       --color-dark
     ); //!прокрутка идет шапка на месте стоит не уходит вверх
-    border-bottom: var(--border); //рамка под вверхним текстом
+    border-bottom: var(--border); //рамка под верхним текстом
 
     //мобильная версия
     @include mobile {
@@ -59,7 +59,7 @@
     // кнопкa с мобильной версии
     @include mobile {
       position: fixed;
-      inset: 0; //растянем ээлемент на весь экран
+      inset: 0; //растянем элемент на весь экран
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -78,10 +78,10 @@
     }
   }
 
-  //МЕНЮ Дом Новости Подкасты Ресурсы
+  //МЕНЮ Дом Новости Подкаст Ресурсы
   &__menu {
     @include mobile {
-      overflow-y: auto; //добавляем скрол на случай если меню расширется
+      overflow-y: auto; //добавляем скрол на случай если меню расширятся
     }
 
     &-list {
@@ -92,7 +92,7 @@
       @include laptop {
         column-gap: rem(6);
 
-        //добавляем растояние между элементами списка меню
+        //добавляем расстояние между элементами списка меню
         @include mobile {
           flex-direction: column;
           row-gap: 1rem;
@@ -100,7 +100,7 @@
       }
     }
 
-    //внутри  надписть "Дом Новости Подкасты Ресурсы"
+    //внутри  надпись "Дом Новости Подкаст Ресурсы"
     &-link {
       padding: rem(14) rem(24);
       color: var(--color-gray-50);
@@ -126,7 +126,7 @@
     @include mobile {
       width: 100%;
       max-width: rem(300);
-      align-self: center; // чтто бы не съехал в сторону
+      align-self: center; // что бы не съехал в сторону
     }
   }
 }

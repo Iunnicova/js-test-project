@@ -1,0 +1,49 @@
+@use '../helpers' as *;
+
+.footer {
+  color: var(--color-dark-50);
+
+  &__body {
+    padding-block: fluid(80, 40); //самая большая и самая маленькая версия
+    border-bottom: var(--border); //нижняя серая черта(граница)
+  }
+
+  &__menu {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); // 5 колонок в grid сетку
+    align-items: start; //прижать все пункты меню к верху footer
+    column-gap: fluid(
+      80,
+      20
+    ); //расстояние между колонками самая большая и самая маленькая
+
+    &-column {
+      display: grid;
+      row-gap: fluid(36, 16); //расстояние самая большая и самая маленькая
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: fluid(18, 8); //расстояние самая большая и самая маленькая
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      column-gap: rem(8);
+    }
+  }
+
+  &__extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1rem;
+    padding-block: rem(40);
+
+    @include laptop {
+      padding-block: rem(24);
+    }
+  }
+}

@@ -1,4 +1,4 @@
-// гдавный файл ,сюжа импортируем все стили с проекта
+// главный файл ,сюда импортируем все стили с проекта
 
 //через дерективу @use подключаем файлы стилей
 @use 'normalize';
@@ -13,6 +13,11 @@
 @use 'blocks/header';
 @use 'blocks/icon';
 @use 'blocks/logo';
+
+//подключаем файлы styles => blocks =>footer
+@use 'blocks/badge';
+@use 'blocks/soc1als';
+@use 'blocks/footer';
 
 //!Проверяем подключения
 // body {
