@@ -1,0 +1,49 @@
+@use '../helpers' as *;
+
+//как делим контейнер для grid 2:49
+
+//! "grid-template-areas"-Это как рисовать сетку с подписями ячеек, а затем говорить элементам:
+// «Ты иди в ячейку с именем body, а ты в metrics
+
+.hero {
+  &__main {
+    display: grid;
+    grid-template-columns: 60% auto;
+    grid-template-areas: //задаёт именованные области сетки.
+
+      'body resources-preview'
+      'metrics resources-preview';
+  }
+  &__body {
+    grid-area: body; //указывает, в какую область сетки он должен встать
+    padding-top: rem(150);
+    padding-right: rem(50);
+    padding-bottom: rem(100);
+  }
+
+  &__subtitle {
+    @include fluid-text(30, 18); //<p"hero__subtitle">
+    font-family: var(--font-family-accent);
+    font-weight: 500;
+    color: var(--color-dark-50);
+
+    // ':last-child' для более надежной разметки 2:53
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__title {
+   &:not(:last-child) {
+      margin-bottom: rem(20);
+    } 
+  }
+
+  &__metrics {
+    grid-area: metrics; //указывает, в какую область сетки он должен встать
+  }
+
+  &__resources-preview {
+    grid-area: resources-preview; //указывает, в какую область сетки он должен встать
+  }
+}

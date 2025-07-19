@@ -19,6 +19,22 @@
 @use 'blocks/soc1als';
 @use 'blocks/footer';
 
+//подключаем файлы styles => blocks =>main=>section class="hero"
+@use 'blocks/advantage-card';
+@use 'blocks/hero';
+@use 'blocks/metrics';
+@use 'blocks/resources-preview';
+@use 'blocks/team';
+
+//!чтобы при верстке тебе не мешали уже сверстаные эдементы их можно на время отключить например:
+// .header {
+//   display: none !important; //теперь "header" невидимый
+// }
+// .footer {
+//   display: none !important; //теперь "footer" невидимый
+// }
+
+
 //!Проверяем подключения
 // body {
 //   background-color: rgb(92, 174, 146);
