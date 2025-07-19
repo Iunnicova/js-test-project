@@ -17,9 +17,30 @@
       20
     ); //расстояние между колонками самая большая и самая маленькая
 
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr); //мобильная версия
+    }
+
+    @include mobile {
+      row-gap: rem(20);
+    }
+
+    //кнопки со стрелочками
     &-column {
       display: grid;
       row-gap: fluid(36, 16); //расстояние самая большая и самая маленькая
+
+      &:last-child {
+        @include tablet {
+          grid-column: -1/1;
+
+          .footer__menu-list {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: rem(12);
+          }
+        }
+      }
     }
 
     &-list {
@@ -44,6 +65,30 @@
 
     @include laptop {
       padding-block: rem(24);
+    }
+
+    @include mobile {
+      flex-direction: column;
+      row-gap: rem(20);
+    }
+
+    //черточка вертикальная
+    &-menu {
+      &-list {
+        display: flex;
+      }
+
+      //к каждом не последнему item добавляется черточка
+      &-item:not(:last-child)::after {
+        content: '|';
+        margin-inline: rem(11);
+      }
+    }
+  }
+
+  &__soc1als {
+    @include mobile {
+      order: -1; //в мобильной версии меняем местами значки с середины на вверх
     }
   }
 }
