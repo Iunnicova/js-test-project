@@ -1,2 +1,31 @@
-
 @use '../helpers' as *;
+
+.metrics {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column-reverse; //изменяет направление потока flex-элементов в колонке на обратное
+    row-gap: rem(10);
+    padding: rem(50);
+
+    &:first-child {
+      padding-left: 0; //сбрасываем потому что упирается
+    }
+
+    &:not(:last-child) {
+      border-right: var(--border); // всем элементам кроме последнего добавляем полоску
+    }
+  }
+
+  &__value {
+    font-weight: 600;
+  }
+
+  &__sign {
+    color: var(--color-accent);
+  }
+}

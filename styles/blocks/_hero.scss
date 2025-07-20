@@ -34,9 +34,9 @@
   }
 
   &__title {
-   &:not(:last-child) {
+    &:not(:last-child) {
       margin-bottom: rem(20);
-    } 
+    }
   }
 
   &__metrics {
@@ -45,5 +45,36 @@
 
   &__resources-preview {
     grid-area: resources-preview; //указывает, в какую область сетки он должен встать
+    padding-left: rem(80);
+    padding-bottom: rem(80);
+    border-left: var(--border);
+    //выгружаем картинку выключив все изображения в ней 2:58
+    // указываем позиционирование от левого угла 0 0
+    background: 
+    url(../../images/resources-preview/bg.png) 0 0/cover no-repeat;
+  }
+
+  &__advantages {
+&-list {
+    display: grid;
+        grid-template-columns: repeat(3, 1fr); //грид сетка 3 равные колонки
+}
+ 
+&-item {
+  --paddingX: #{rem(80)};// создаем переменную
+
+  padding-block: rem(50);
+
+  &:not(:first-child) {
+    padding-left: var(--paddingX); // для всех элементов кроме первого был padding-left
+  }
+
+  &:not(:last-child) {
+          padding-right: var(--paddingX); //для всех элементов кроме последнего был padding-right
+          border-right: var(--border);
   }
 }
+
+  }
+}
+
