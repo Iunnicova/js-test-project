@@ -41,6 +41,17 @@
 
   &__metrics {
     grid-area: metrics; //указывает, в какую область сетки он должен встать
+
+    @include tablet-above {
+      border-top: var(--border); //!горизонтальные линии разделяющие секции
+    }
+
+    @include tablet {
+      &::before {
+        width: var(--100vw);
+        right: calc(var(--container-padding-x) * -1);
+      }
+    }
   }
 
   &__resources-preview {
@@ -50,31 +61,34 @@
     border-left: var(--border);
     //выгружаем картинку выключив все изображения в ней 2:58
     // указываем позиционирование от левого угла 0 0
-    background: 
-    url(../../images/resources-preview/bg.png) 0 0/cover no-repeat;
+    background: url(../../images/resources-preview/bg.png) 0 0 / cover no-repeat;
   }
 
   &__advantages {
-&-list {
-    display: grid;
-        grid-template-columns: repeat(3, 1fr); //грид сетка 3 равные колонки
-}
- 
-&-item {
-  --paddingX: #{rem(80)};// создаем переменную
+    border-block: var(--border); //!горизонтальные линии разделяющие секции
 
-  padding-block: rem(50);
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); //грид сетка 3 равные колонки
+    }
 
-  &:not(:first-child) {
-    padding-left: var(--paddingX); // для всех элементов кроме первого был padding-left
+    &-item {
+      --paddingX: #{rem(80)}; // создаем переменную
+
+      padding-block: rem(50);
+
+      &:not(:first-child) {
+        padding-left: var(
+          --paddingX
+        ); // для всех элементов кроме первого был padding-left
+      }
+
+      &:not(:last-child) {
+        padding-right: var(
+          --paddingX
+        ); //для всех элементов кроме последнего был padding-right
+        border-right: var(--border);
+      }
+    }
   }
-
-  &:not(:last-child) {
-          padding-right: var(--paddingX); //для всех элементов кроме последнего был padding-right
-          border-right: var(--border);
-  }
 }
-
-  }
-}
-

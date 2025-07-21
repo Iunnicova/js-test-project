@@ -275,6 +275,30 @@ svg * {
   }
 }
 
+.full-vw-line {
+  position: relative;
+}
+.full-vw-line::before, .full-vw-line::after {
+  position: absolute;
+  width: calc((var(--100vw) - var(--container-width)) / 2);
+  height: 0.0625rem;
+  background-color: var(--color-dark-15);
+}
+.full-vw-line--top::before {
+  content: "";
+  bottom: 100%;
+}
+.full-vw-line--bottom::after {
+  content: "";
+  top: 100%;
+}
+.full-vw-line--left::before, .full-vw-line--left::after {
+  right: 100%;
+}
+.full-vw-line--right::before, .full-vw-line--right::after {
+  left: 100%;
+}
+
 html.is-lock {
   overflow: hidden;
 }
@@ -522,6 +546,7 @@ button[aria-label]::before {
 .header__body {
   padding-block: 1.5rem;
   background-color: var(--color-dark-10);
+  border: var(--border);
 }
 @media (width <= 90.06125rem) {
   .header__body {
@@ -749,6 +774,34 @@ button[aria-label]::before {
   }
 }
 
+.advantage-card {
+  display: grid;
+  row-gap: 1.875rem;
+}
+.advantage-card__link {
+  --circleSize: 3.25rem;
+  --circleMarginLeft: 1.25rem;
+  position: relative;
+  display: grid;
+  row-gap: 0.25rem;
+  padding-right: calc(var(--circleMarginLeft) + var(--circleMarginLeft));
+}
+.advantage-card__link::after {
+  width: var(--circleSize);
+  height: var(--circleSize);
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  content: "";
+  right: 0;
+  background: url("../../icons/arrow-top-right_bleck.svg") center no-repeat var(--color-accent);
+  border-radius: 50%;
+}
+.advantage-card__details {
+  font-size: clamp(0.875rem, 0.7794117647rem + 0.3921568627vw, 1.25rem);
+  font-family: var(--font-family-accent);
+}
+
 .hero__main {
   display: grid;
   grid-template-columns: 60% auto;
@@ -775,12 +828,26 @@ button[aria-label]::before {
 .hero__metrics {
   grid-area: metrics;
 }
+@media (width > 90.06125rem) {
+  .hero__metrics {
+    border-top: var(--border);
+  }
+}
+@media (width <= 90.06125rem) {
+  .hero__metrics::before {
+    width: var(--100vw);
+    right: calc(var(--container-padding-x) * -1);
+  }
+}
 .hero__resources-preview {
   grid-area: resources-preview;
   padding-left: 5rem;
   padding-bottom: 5rem;
   border-left: var(--border);
   background: url(../../images/resources-preview/bg.png) 0 0/cover no-repeat;
+}
+.hero__advantages {
+  border-block: var(--border);
 }
 .hero__advantages-list {
   display: grid;
