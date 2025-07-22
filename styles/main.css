@@ -275,12 +275,18 @@ svg * {
   }
 }
 
+@media (width > 90.06125rem) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
 .full-vw-line {
   position: relative;
 }
 .full-vw-line::before, .full-vw-line::after {
   position: absolute;
-  width: calc((var(--100vw) - var(--container-width)) / 2);
+  width: calc((100vw - var(--container-width)) / 2);
   height: 0.0625rem;
   background-color: var(--color-dark-15);
 }
@@ -827,11 +833,7 @@ button[aria-label]::before {
 }
 .hero__metrics {
   grid-area: metrics;
-}
-@media (width > 90.06125rem) {
-  .hero__metrics {
-    border-top: var(--border);
-  }
+  border-top: var(--border);
 }
 @media (width <= 90.06125rem) {
   .hero__metrics::before {

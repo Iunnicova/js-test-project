@@ -42,9 +42,9 @@
   &__metrics {
     grid-area: metrics; //указывает, в какую область сетки он должен встать
 
-    @include tablet-above {
+
       border-top: var(--border); //!горизонтальные линии разделяющие секции
-    }
+    
 
     @include tablet {
       &::before {
@@ -64,7 +64,7 @@
     background: url(../../images/resources-preview/bg.png) 0 0 / cover no-repeat;
   }
 
-  &__advantages {
+   &__advantages {
     border-block: var(--border); //!горизонтальные линии разделяющие секции
 
     &-list {
