@@ -19,6 +19,11 @@
     padding-top: rem(150);
     padding-right: rem(50);
     padding-bottom: rem(100);
+
+    @include laptop {
+      padding-top: rem(100);
+      padding-right: rem(40);
+    }
   }
 
   &__subtitle {
@@ -42,9 +47,7 @@
   &__metrics {
     grid-area: metrics; //указывает, в какую область сетки он должен встать
 
-
-      border-top: var(--border); //!горизонтальные линии разделяющие секции
-    
+    border-top: var(--border); //!горизонтальные линии разделяющие секции
 
     @include tablet {
       &::before {
@@ -62,9 +65,14 @@
     //выгружаем картинку выключив все изображения в ней 2:58
     // указываем позиционирование от левого угла 0 0
     background: url(../../images/resources-preview/bg.png) 0 0 / cover no-repeat;
+
+    @include laptop {
+      padding-left: rem(50);
+      padding-bottom: rem(50);
+    }
   }
 
-   &__advantages {
+  &__advantages {
     border-block: var(--border); //!горизонтальные линии разделяющие секции
 
     &-list {
@@ -76,6 +84,12 @@
       --paddingX: #{rem(80)}; // создаем переменную
 
       padding-block: rem(50);
+
+      @include laptop {
+        --paddingX: #{rem(50)};
+
+        padding-block: rem(40);
+      }
 
       &:not(:first-child) {
         padding-left: var(
