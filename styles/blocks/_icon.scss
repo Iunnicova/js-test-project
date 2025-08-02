@@ -24,8 +24,8 @@
     background-repeat: no-repeat; //Предотвращает повторение фонового изображения
   }
 
-  @include laptop{
-     --size: #{rem(24)}; //размер стрелки в версии лаптоп
+  @include laptop {
+    --size: #{rem(24)}; //размер стрелки в версии лаптоп
   }
 
   &--yellow-arrow {

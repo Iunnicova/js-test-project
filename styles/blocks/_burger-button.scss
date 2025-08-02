@@ -21,18 +21,18 @@
   &.is-active {
     .burger-button__line {
       &:first-child {
-        transform-origin: 0;  //делаем крестик ровным
+        transform-origin: 0; //делаем крестик ровным
         rotate: 45deg; //поворачивает первую линию на 45 градусов
-        translate: 0.25em -0.1em;  //делаем крестик ровным
+        translate: 0.25em -0.1em; //делаем крестик ровным
       }
 
       &:nth-child(2) {
-         rotate: -45deg; //поворачиваем вторую линию на -45 градусов
+        rotate: -45deg; //поворачиваем вторую линию на -45 градусов
       }
 
       &:last-child {
-         width: 0;  //уменьшаем третью линию до 0
-       }
+        width: 0; //уменьшаем третью линию до 0
+      }
     }
   }
 
@@ -41,9 +41,11 @@
     height: rem(2);
     background-color: currentColor;
     border-radius: 1rem;
-    transition-duration: var(--transition-duration); //для стилизация активного состояния бургер кнопки
+    transition-duration: var(
+      --transition-duration
+    ); //для стилизация активного состояния бургер кнопки
 
-    &:last-child  {
+    &:last-child {
       width: 55%; //последнюю линию в бургер меню делаем короче
       align-self: end; //прижимаем линию к правому краю
     }

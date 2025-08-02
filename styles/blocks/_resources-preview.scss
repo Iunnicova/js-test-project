@@ -18,6 +18,14 @@
 
     @include laptop {
       row-gap: rem(6);
+      
+    }
+  }
+
+  //кнопка самого маленького по ширине устройства
+  &__button {
+    @include mobile-s {
+      width: 100%;
     }
   }
 }

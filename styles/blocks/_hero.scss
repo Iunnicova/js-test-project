@@ -7,12 +7,14 @@
 
 .hero {
   &__main {
-    display: grid;
-    grid-template-columns: 60% auto;
-    grid-template-areas: //задаёт именованные области сетки.
+    @include tablet-above {
+      display: grid;
+      grid-template-columns: 60% auto;
+      grid-template-areas: //задаёт именованные области сетки.
 
-      'body resources-preview'
-      'metrics resources-preview';
+        'body resources-preview'
+        'metrics resources-preview';
+    }
   }
   &__body {
     grid-area: body; //указывает, в какую область сетки он должен встать
@@ -23,6 +25,12 @@
     @include laptop {
       padding-top: rem(100);
       padding-right: rem(40);
+    }
+
+    @include tablet {
+      padding-right: 0; //убираем паддинг в мобильной версии
+      padding-top: rem(40);
+      padding-bottom: rem(30);
     }
   }
 
@@ -35,24 +43,36 @@
     // ':last-child' для более надежной разметки 2:53
     &:not(:last-child) {
       margin-bottom: rem(30);
+
+      @include mobile {
+        margin-bottom: rem(14);
+      }
     }
   }
 
   &__title {
     &:not(:last-child) {
       margin-bottom: rem(20);
+
+      @include mobile {
+        margin-bottom: rem(10);
+      }
     }
   }
 
   &__metrics {
-    grid-area: metrics; //указывает, в какую область сетки он должен встать
+    grid-area: metrics;
 
-    border-top: var(--border); //!горизонтальные линии разделяющие секции
+    @include tablet-above {
+      border-top: var(--border);
+    }
 
     @include tablet {
       &::before {
         width: var(--100vw);
-        right: calc(var(--container-padding-x) * -1);
+        right: calc(
+          var(--container-padding-x) * -1
+        ); //линия раздилительная с края до края выходя за контейнер
       }
     }
   }
@@ -69,6 +89,19 @@
     @include laptop {
       padding-left: rem(50);
       padding-bottom: rem(50);
+    }
+
+    @include tablet-above {
+      border-left: var(--border);
+    }
+
+    @include tablet {
+      width: 100vw;
+      margin-left: calc(var(--container-padding-x) * -1);
+      padding: rem(100) rem(40) rem(40);
+      //картинка отличается от других форматов загружаем с мобильной версии
+      background-image: url('../../images/resources-preview/bg_tablet.png');
+      background-size: contain;
     }
   }
 

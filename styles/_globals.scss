@@ -17,7 +17,6 @@
 //   }
 // }
 
-
 //когда будет открываться меню оверлей  основной скрол страницы по вертикале будет замирать
 html {
   &.is-lock {
@@ -29,10 +28,10 @@ html {
 body {
   @include fluid-text(18, 14);
 
-//!прижимаем footer к низу
-display: flex;
-flex-direction: column;
-//
+  //!прижимаем footer к низу
+  display: flex;
+  flex-direction: column;
+  //
   letter-spacing: -0.03em;
   font-family: var(--font-family-base);
   background-color: var(--color-dark);
@@ -43,7 +42,6 @@ main {
   //!прижимаем footer к низу
   flex-grow: 1;
 }
-
 
 h1,
 .h1,

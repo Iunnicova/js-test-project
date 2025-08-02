@@ -1,8 +1,6 @@
 //главный js файл проекта, тока входа приложения, сюда импортируем сущности из модулей
 
-import Header from "./Header.js";
+import Header from './Header.js';
 
 //запускаем класс Header
 new Header();
-
-

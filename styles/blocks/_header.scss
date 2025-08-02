@@ -37,7 +37,7 @@
   &__body {
     padding-block: rem(24);
     background-color: var(--color-dark-10);
-    border:var(--border);
+    border: var(--border);
 
     @include mobile {
       padding-block: rem(20);
