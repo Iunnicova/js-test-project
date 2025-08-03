@@ -108,9 +108,12 @@
   &__advantages {
     border-block: var(--border); //!горизонтальные линии разделяющие секции
 
+    //оборачиваем в миксин 3:34
     &-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); //грид сетка 3 равные колонки
+      @include tablet-above {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); //грид сетка 3 равные колонки
+      }
     }
 
     &-item {
@@ -124,17 +127,30 @@
         padding-block: rem(40);
       }
 
-      &:not(:first-child) {
-        padding-left: var(
-          --paddingX
-        ); // для всех элементов кроме первого был padding-left
+      //&:not общрачиваем
+      @include tablet-above {
+        &:not(:first-child) {
+          padding-left: var(
+            --paddingX
+          ); // для всех элементов кроме первого был padding-left
+        }
+
+        &:not(:last-child) {
+          padding-right: var(
+            --paddingX
+          ); //для всех элементов кроме последнего был padding-right
+          border-right: var(--border);
+        }
       }
 
-      &:not(:last-child) {
-        padding-right: var(
-          --paddingX
-        ); //для всех элементов кроме последнего был padding-right
-        border-right: var(--border);
+      @include tablet {
+        padding-block: rem (30);
+
+        &:not(:last-child) {
+          border-bottom: var(
+            --border
+          ); //всем кроме последнего добавить черточку
+        }
       }
     }
   }
