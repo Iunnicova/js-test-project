@@ -20,37 +20,37 @@ $mobile-s: 480.98; // Ширина для мобильных устройств
 }
 
 @mixin tablet-above {
-  @media (width > rem($laptop)) {
+  @media (width > rem($tablet)) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (width <= rem($laptop)) {
+  @media (width <= rem($tablet)) {
     @content;
   }
 }
 
 @mixin mobile-above {
-  @media (width > rem($laptop)) {
+  @media (width > rem($mobile)) {
     @content;
   }
 }
 
 @mixin mobile {
-  @media (width <= rem($laptop)) {
+  @media (width <= rem($mobile)) {
     @content;
   }
 }
 
 @mixin mobile-s-above {
-  @media (width > rem($laptop)) {
+  @media (width > rem($mobile-s)) {
     @content;
   }
 }
 
 @mixin mobile-s {
-  @media (width <= rem($laptop)) {
+  @media (width <= rem($mobile-s)) {
     @content;
   }
 }
