@@ -19,12 +19,19 @@
 @use 'blocks/soc1als';
 @use 'blocks/footer';
 
-//подключаем файлы styles => blocks =>main=>section class="hero"
+//подключаем файлы styles => blocks =>main=> <section class="section" aria-labelledby="features-title">
 @use 'blocks/advantage-card';
 @use 'blocks/hero';
 @use 'blocks/metrics';
 @use 'blocks/resources-preview';
 @use 'blocks/team';
+
+//подключаем файлы styles => blocks =>main=> <section class="section" aria-labelledby="features-title">
+@use 'blocks/card';
+@use 'blocks/list';
+@use 'blocks/section';
+@use 'blocks/tag';
+@use 'blocks/tile';
 
 //!чтобы при верстке тебе не мешали уже сверстаные эдементы их можно на время отключить например:
 // .header {
