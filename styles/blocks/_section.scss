@@ -1,1 +1,27 @@
+//верхушка второго блока
 @use '../helpers' as *;
+
+.section {
+  &__header {
+    padding-block: fluid(120, 40); //от 1800 до 390
+    background-color: var(--color-dark-10);
+
+    &-info {
+      display: grid;
+      align-items: start;
+      row-gap: rem(16);
+
+      @include laptop {
+        row-gap: rem(10);
+      }
+    }
+  }
+
+  &__subtitle {
+    justify-self: start;
+  }
+
+  &__body {
+    border-block: var(--border);
+  }
+}

@@ -552,7 +552,7 @@ button[aria-label]::before {
 .header__body {
   padding-block: 1.5rem;
   background-color: var(--color-dark-10);
-  border: var(--border);
+  border-bottom: var(--border);
 }
 @media (width <= 47.99875rem) {
   .header__body {
@@ -1059,6 +1059,57 @@ button[aria-label]::before {
 }
 .team__person:not(:first-child) {
   margin-left: calc(var(--personImageSize) / 4 * -1);
+}
+
+.list__item:not(:last-child) {
+  border-bottom: var(--border);
+}
+
+.section__header {
+  padding-block: clamp(2.5rem, 1.2254901961rem + 5.2287581699vw, 7.5rem);
+  background-color: var(--color-dark-10);
+}
+.section__header-info {
+  display: grid;
+  align-items: start;
+  row-gap: 1rem;
+}
+@media (width <= 90.06125rem) {
+  .section__header-info {
+    row-gap: 0.625rem;
+  }
+}
+.section__subtitle {
+  justify-self: start;
+}
+.section__body {
+  border-block: var(--border);
+}
+
+.tag {
+  font-size: clamp(0.875rem, 0.7794117647rem + 0.3921568627vw, 1.25rem);
+  padding: 0.375rem 0.625rem;
+  color: var(--color-light);
+  font-weight: 500;
+  background-color: var(--color-dark-20);
+  border-radius: 0.25rem;
+}
+@media (width <= 90.06125rem) {
+  .tag {
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+.tile {
+  padding: clamp(1.5rem, 1.2450980392rem + 1.045751634vw, 2.5rem);
+  border: var(--border);
+  background-color: var(--color-dark-10);
+  border-radius: 0.75rem;
+}
+@media (width <= 90.06125rem) {
+  .tile {
+    border-radius: 0.625rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

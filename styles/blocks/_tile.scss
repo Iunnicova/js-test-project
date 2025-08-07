@@ -1,1 +1,14 @@
+//утилитарный класс
+
 @use '../helpers' as *;
+
+.tile {
+  padding: fluid(40, 24);
+  border: var(--border);
+  background-color: var(--color-dark-10);
+  border-radius: rem(12);
+
+  @include laptop {
+    border-radius: rem(10);
+  }
+}

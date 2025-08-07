@@ -1,1 +1,10 @@
 @use '../helpers' as *;
+
+//добавилась рамка всем кроме последнего
+.list {
+  &__item {
+    &:not(:last-child) {
+      border-bottom: var(--border);
+    }
+  }
+}
