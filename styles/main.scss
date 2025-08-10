@@ -19,7 +19,7 @@
 @use 'blocks/soc1als';
 @use 'blocks/footer';
 
-//подключаем файлы styles => blocks =>main=> <section class="section" aria-labelledby="features-title">
+//подключаем файлы styles => blocks =>main=> <section class="section" aria-labelledby="hero-title">
 @use 'blocks/advantage-card';
 @use 'blocks/hero';
 @use 'blocks/metrics';
@@ -32,6 +32,14 @@
 @use 'blocks/section';
 @use 'blocks/tag';
 @use 'blocks/tile';
+
+//подключаем файлы styles => blocks =>main=> <section class="section" aria-labelledby="blog-title">
+@use 'blocks/blog-actions';
+@use 'blocks/blog-card';
+@use 'blocks/person-card';
+@use 'blocks/tabs';
+
+
 
 //!чтобы при верстке тебе не мешали уже сверстаные эдементы их можно на время отключить например:
 // .header {
