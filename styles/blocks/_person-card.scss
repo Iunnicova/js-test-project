@@ -1,1 +1,7 @@
 @use '../helpers' as *;
+
+.person-card {
+  display: flex;
+  align-items: center;
+  column-gap: fluid(16, 8);
+}
