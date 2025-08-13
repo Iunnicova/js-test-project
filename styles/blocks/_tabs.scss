@@ -3,6 +3,10 @@
 .tabs {
   &__header {
     border-bottom: var(--border);
+
+    @include tablet {
+      overflow-x: auto; //горизонтально прокручивать блок, если его содержимое шире контейнера.
+    }
   }
 
   &__buttons {
@@ -13,6 +17,10 @@
 
     @include laptop {
       column-gap: rem(14);
+    }
+
+    @include tablet {
+      width: max-content; // управляет шириной элемента в зависимости от его содержимого
     }
   }
 
