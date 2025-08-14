@@ -2,5 +2,8 @@
 
 import Header from './Header.js';
 
-//запускаем класс Header
+import TabsCollection from './Tabs.js';
+
+//запускаем классы
 new Header();
+new TabsCollection();
