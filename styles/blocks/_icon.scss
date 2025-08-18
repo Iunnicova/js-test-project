@@ -33,4 +33,11 @@
       background-image: url('../../icons/arrow-top.svg');
     }
   }
+
+  //блок 'resources-title'
+  &--yellow-eye {
+    &::after {
+      background-image: url('../../icons/eye_yellow.svg');
+    }
+  }
 }
