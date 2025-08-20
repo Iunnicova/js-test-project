@@ -1,0 +1,45 @@
+//5:50
+@use '../helpers' as *;
+
+.bordered-grid {
+  //локальная переменная
+  --columns: 1;
+  --itemPaddingY: #{fluid(80, 40)}; //значение вертикальных отступов будет в других вкладках
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  &--2-cols {
+    --columns: 2;
+  }
+
+  &--3-cols {
+    --columns: 3;
+    --itemPaddingX: #{rem(50)}; //значение горизонтальных отступов будет в других вкладках
+
+    @include laptop {
+      --itemPaddingX: #{rem(40)};
+    }
+
+    //5-52 выбираем элементы в 1 и 2 колонке отступы и черточка
+
+    .bordered-grid__item {
+      &:nth-child(3n - 2),
+      &:nth-child(3n - 1) {
+        padding-right: var(--itemPaddingX);
+        border-right: var(--border);
+      }
+
+      //элемент во 2 колонке
+      &:nth-child(3n - 1) {
+        @include full-vw-centered-line(bottom);
+      }
+
+      //выбирает элементы во 2 и 3 колонке
+      &:nth-child(3n - 1),
+      &:nth-child(3n) {
+        padding-left: var(--itemPaddingX);
+      }
+    }
+  }
+}

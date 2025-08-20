@@ -74,3 +74,18 @@
   clip: rect(0 0 0 0) !important;
   overflow: hidden !important;
 }
+
+//для вертикальной линии которая выходит за пределы в section" aria-labelledby="reviews-title"
+@mixin full-vw-centered-line($property: top) {
+  position: relative;
+
+  &::before {
+    @include abs-x;
+
+    content: '';
+    #{$property}: 0;
+    width: 100vw;
+    height: rem(1);
+    background-color: var(--color-dark-15);
+  }
+}

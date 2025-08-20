@@ -42,6 +42,11 @@
 //подключаем файлы styles => blocks =>main=> section class="section" aria-labelledby="resources-title">
 @use 'blocks/download-info';
 
+//подключаем файлы styles => blocks =>main=> section class="section" aria-labelledby="reviews-title">
+@use 'blocks/bordered-grid';
+@use 'blocks/rating-view';
+@use 'blocks/review-card';
+
 //!чтобы при верстке тебе не мешали уже сверстаные эдементы их можно на время отключить например:
 // .header {
 //   display: none !important; //теперь "header" невидимый
