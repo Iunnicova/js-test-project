@@ -42,4 +42,8 @@
       }
     }
   }
+
+  &__item {
+    padding-block: var(--itemPaddingY);
+  }
 }
