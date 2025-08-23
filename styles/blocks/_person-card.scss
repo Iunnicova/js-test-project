@@ -7,7 +7,7 @@
   column-gap: fluid(16, 8);
 
   @include laptop {
-     --imageSize: #{rem(60)};
+    --imageSize: #{rem(60)};
   }
 
   &__image {

@@ -22,11 +22,11 @@
     @include square(var(--size));
 
     //6:06 выгружаем меняя в фигме цвет на серый
-    background: url('../../icons/star_gray.svg') center/contain no-repeat; 
+    background: url('../../icons/star_gray.svg') center/contain no-repeat;
 
     //активная желтая
     &.is-active {
-      background: url('../../icons/star_yellow.svg')
+      background: url('../../icons/star_yellow.svg');
     }
 
     @include laptop {
