@@ -74,3 +74,36 @@
     }
   }
 }
+
+//!стрелка в желтом кружке
+.circle-icon {
+  --circleSize: #{rem(52)};
+  --circleMarginLeft: #{rem(20)}; //создаем переменную
+
+  position: relative;
+  min-height: var(--circleSize);
+  padding-right: calc(
+    var(--circleMarginLeft) + var(--circleMarginLeft)
+  ); //паддинг для кружка
+
+  @include laptop {
+    --circleSize: #{rem(44)}; //переопределяем
+    --circleMarginLeft: #{rem(14)};
+  }
+
+  @include mobile {
+    --circleSize: #{rem(40)}; //переопределяем
+  }
+
+  &::after {
+    @include square(var(--circleSize));
+    @include abs-y;
+
+    content: '';
+    right: 0; // прижать псевдоэлемент к крайней границе ссылке
+    background: url('../../icons/arrow-top-right_bleck.svg') center no-repeat
+      //выгружаем стрелку без кружка из figma
+      var(--color-accent); //желтый
+    border-radius: 50%;
+  }
+}
