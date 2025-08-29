@@ -51,6 +51,12 @@
 @use 'blocks/about';
 @use 'blocks/about-card';
 
+// подключаем файлы styles => blocks => <section class="hero-alt" aria-labelledby="news-title">
+@use 'blocks/hero-alt';
+@use 'blocks/news-card';
+@use 'blocks/news';
+@use 'blocks/summary';
+
 //!чтобы при верстке тебе не мешали уже сверстанные элементы их можно на время отключить например:
 // .header {
 //   display: none !important; //теперь "header" невидимый
