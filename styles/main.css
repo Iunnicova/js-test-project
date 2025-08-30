@@ -1688,6 +1688,7 @@ button[aria-label]::before {
 .hero-alt__header {
   padding-top: clamp(2.5rem, 1.0661764706rem + 5.8823529412vw, 8.125rem);
   padding-bottom: clamp(2.5rem, 0.7475490196rem + 7.1895424837vw, 9.375rem);
+  border-bottom: var(--border);
 }
 .hero-alt__header-inner {
   display: grid;
@@ -1725,6 +1726,99 @@ button[aria-label]::before {
     clip: rect(0 0 0 0) !important;
     overflow: hidden !important;
   }
+}
+
+.news-card {
+  display: grid;
+  row-gap: 1.25rem;
+  height: 100%;
+}
+@media (width <= 90.06125rem) {
+  .news-card {
+    row-gap: 1rem;
+  }
+}
+.news-card:has(.news-card__summary) {
+  grid-template-columns: 32% 1fr;
+  grid-template-areas: "image other" "image other" "image other";
+  align-items: center;
+  column-gap: 5rem;
+  padding-block: clamp(2.5rem, 1.862745098rem + 2.614379085vw, 5rem);
+}
+@media (width <= 90.06125rem) {
+  .news-card:has(.news-card__summary) {
+    column-gap: 2.5rem;
+  }
+}
+.news-card:has(.news-card__summary) .news-card__image {
+  grid-area: image;
+}
+.news-card:has(.news-card__summary) .news-card__title {
+  font-size: clamp(1.25rem, 1.0588235294rem + 0.7843137255vw, 2rem);
+  font-family: var(--font-family-base);
+  font-weight: 600;
+}
+.news-card__image {
+  border-radius: 0.75rem;
+}
+@media (width <= 90.06125rem) {
+  .news-card__image {
+    border-radius: 0.625rem;
+  }
+}
+.news-card__body {
+  display: grid;
+  row-gap: 0.625rem;
+}
+@media (width <= 90.06125rem) {
+  .news-card__body {
+    row-gap: 0.25rem;
+  }
+}
+.news-card__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.news {
+  display: grid;
+  row-gap: 5rem;
+  padding-block: clamp(2.5rem, 1.862745098rem + 2.614379085vw, 5rem);
+}
+@media (width <= 90.06125rem) {
+  .news {
+    row-gap: 2.5rem;
+  }
+}
+.news__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 1rem;
+}
+.news__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22.375rem, 1fr));
+  gap: 1.875rem;
+}
+
+.summary__list {
+  display: flex;
+  column-gap: clamp(1.25rem, 0.7720588235rem + 1.9607843137vw, 3.125rem);
+}
+.summary__item {
+  display: grid;
+  row-gap: 0.25rem;
+}
+@media (width <= 90.06125rem) {
+  .summary__item {
+    row-gap: 0.125rem;
+  }
+}
+.summary__value {
+  color: var(--color-light);
 }
 
 /*# sourceMappingURL=main.css.map */
