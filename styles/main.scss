@@ -57,6 +57,10 @@
 @use 'blocks/news';
 @use 'blocks/summary';
 
+// подключаем файлы styles => blocks => <section class="section" aria-labelledby="videos-title">
+@use 'blocks/video-card';
+@use 'blocks/video-player';
+
 //!чтобы при верстке тебе не мешали уже сверстанные элементы их можно на время отключить например:
 // .header {
 //   display: none !important; //теперь "header" невидимый

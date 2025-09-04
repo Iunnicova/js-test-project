@@ -1,13 +1,12 @@
-//верхушка второго блока
 @use '../helpers' as *;
 
 .section {
   &__header {
-    padding-block: fluid(120, 40); //от 1800 до 390
+    padding-block: fluid(120, 40);
     background-color: var(--color-dark-10);
 
     &-inner {
-      &:has(.section__link) {
+      &:has(.section__actions) {
         display: grid;
         align-items: center;
         column-gap: 1rem;
@@ -40,4 +39,13 @@
   &__body {
     border-block: var(--border);
   }
+
+  &__actions,
+  &__link {
+    width: 100%;
+  }
+
+  // &__link {
+  //   max-width: rem(358);
+  // }
 }
