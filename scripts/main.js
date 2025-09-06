@@ -4,6 +4,9 @@ import Header from './Header.js';
 
 import TabsCollection from './Tabs.js';
 
-//запускаем классы
+import VideoPlayerCollection from './VideoPlayer.js';
+
+//инициализируем,запускаем классы
 new Header();
 new TabsCollection();
+new VideoPlayerCollection();
