@@ -1,5 +1,21 @@
 // главный файл ,сюда импортируем все стили с проекта
 
+//!чтобы при верстке тебе не мешали уже сверстанные элементы их можно на время отключить например:
+// .header {
+//   display: none !important; //теперь "header" невидимый
+// }
+// .footer {
+//   display: none !important; //теперь "footer" невидимый
+// }
+
+//!Проверяем подключения
+// body {
+//   background-color: rgb(92, 174, 146);
+//   p{
+//     color: rgb(227, 12, 12);
+//   }
+// }
+
 //через дерективу @use подключаем файлы стилей
 @use 'normalize';
 @use 'fonts';
@@ -61,18 +77,6 @@
 @use 'blocks/video-card';
 @use 'blocks/video-player';
 
-//!чтобы при верстке тебе не мешали уже сверстанные элементы их можно на время отключить например:
-// .header {
-//   display: none !important; //теперь "header" невидимый
-// }
-// .footer {
-//   display: none !important; //теперь "footer" невидимый
-// }
-
-//!Проверяем подключения
-// body {
-//   background-color: rgb(92, 174, 146);
-//   p{
-//     color: rgb(227, 12, 12);
-//   }
-// }
+// подключаем файлы styles => blocks => <section class="blog-details" aria-labelledby="blog-details-title">
+@use 'blocks/blog-details';
+@use 'blocks/table-of-contents';
