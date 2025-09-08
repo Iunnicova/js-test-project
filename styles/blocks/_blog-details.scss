@@ -27,4 +27,41 @@
     font-family: var(--font-family-base);
     font-weight: 600;
   }
+
+  // blog-details__content
+
+  &__body {
+    border-block: var(--border);
+
+    &-inner {
+      display: grid;
+      grid-template-columns: 1fr rem(520); // 7:48:40
+    }
+  }
+
+  &__content {
+    border-right: var(--border);
+  }
+
+  &__intro,
+  &__main,
+  &__actions,
+  &__summary {
+    padding: fluid(80, 40) rem(80);
+
+    @include laptop {
+      padding-inline: rem(60);
+    }
+  }
+
+  // 1 пиксельная рамка
+  &__intro,
+  &__actions {
+    border-bottom: var(--border);
+  }
+
+  // actions иконки сердечко, сообщение, поделиться
+  &__actions {
+    padding-block: fluid(50, 20);
+  }
 }
