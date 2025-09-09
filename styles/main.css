@@ -2010,4 +2010,29 @@ button[aria-label]::before {
   padding-block: clamp(1.25rem, 0.7720588235rem + 1.9607843137vw, 3.125rem);
 }
 
+.table-of-contents {
+  padding: 1.25rem;
+  color: var(--color-light);
+  background-color: var(--color-dark-10);
+  border-radius: 0.75rem;
+}
+@media (width <= 90.06125rem) {
+  .table-of-contents {
+    border-radius: 0.625rem;
+  }
+}
+.table-of-contents__list {
+  display: grid;
+  row-gap: 1.25rem;
+}
+@media (width <= 90.06125rem) {
+  .table-of-contents__list {
+    row-gap: 1rem;
+  }
+}
+.table-of-contents__item {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+}
+
 /*# sourceMappingURL=main.css.map */
