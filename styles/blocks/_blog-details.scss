@@ -64,4 +64,20 @@
   &__actions {
     padding-block: fluid(50, 20);
   }
+
+  &__main {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      &:not(:first-child) {
+        margin-top: 1.5rem; //ко всем заголовкам кроме первого ребенка
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 1em; //ко всем заголовкам кроме последнего ребенка
+      }
+    }
+  }
 }

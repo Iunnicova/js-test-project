@@ -16,6 +16,7 @@
       &__item {
         &--wide {
           grid-column: -1 / 1;
+          row-gap: fluid(16, 10);
           margin-top: rem(20);
         }
       }

@@ -690,6 +690,9 @@ button[aria-label]::before {
 .icon--yellow-eye::after {
   background-image: url("../../icons/eye_yellow.svg");
 }
+.icon--gray-arrow-down::after {
+  background-image: url("../../icons/arrow-down_gray.svg");
+}
 
 .logo {
   max-width: clamp(7.875rem, 7.0306372549rem + 3.4640522876vw, 11.1875rem);
@@ -1874,6 +1877,7 @@ button[aria-label]::before {
 }
 .summary--2-cols .summary__item--wide {
   grid-column: -1/1;
+  row-gap: clamp(0.625rem, 0.5294117647rem + 0.3921568627vw, 1rem);
   margin-top: 1.25rem;
 }
 .summary__list {
@@ -2008,6 +2012,20 @@ button[aria-label]::before {
 }
 .blog-details__actions {
   padding-block: clamp(1.25rem, 0.7720588235rem + 1.9607843137vw, 3.125rem);
+}
+.blog-details__main h2:not(:first-child),
+.blog-details__main h3:not(:first-child),
+.blog-details__main h4:not(:first-child),
+.blog-details__main h5:not(:first-child),
+.blog-details__main h6:not(:first-child) {
+  margin-top: 1.5rem;
+}
+.blog-details__main h2:not(:last-child),
+.blog-details__main h3:not(:last-child),
+.blog-details__main h4:not(:last-child),
+.blog-details__main h5:not(:last-child),
+.blog-details__main h6:not(:last-child) {
+  margin-bottom: 1em;
 }
 
 .table-of-contents {

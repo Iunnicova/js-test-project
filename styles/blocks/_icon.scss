@@ -40,4 +40,11 @@
       background-image: url('../../icons/eye_yellow.svg');
     }
   }
+
+  //стрелка в кнопке section "blog-details-title"
+  &--gray-arrow-down {
+    &::after {
+      background-image: url('../../icons/arrow-down_gray.svg');
+    }
+  }
 }
