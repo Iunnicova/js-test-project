@@ -1,4 +1,5 @@
 // главный файл ,сюда импортируем все стили с проекта
+//*****от порядка зависит работа приложения
 
 //!чтобы при верстке тебе не мешали уже сверстанные элементы их можно на время отключить например:
 // .header {
@@ -24,6 +25,7 @@
 @use 'globals';
 
 //подключаем файлы папки styles => blocks
+// @use 'blocks/expandable-content'; //лучше подключить здесь ,но оставим где есть
 @use 'blocks/burger-button';
 @use 'blocks/button';
 @use 'blocks/header';
@@ -80,3 +82,4 @@
 // подключаем файлы styles => blocks => <section class="blog-details" aria-labelledby="blog-details-title">
 @use 'blocks/blog-details';
 @use 'blocks/table-of-contents';
+@use 'blocks/expandable-content';
