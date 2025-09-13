@@ -21,7 +21,6 @@
     flex-direction: column;
     justify-content: center;
     row-gap: fluid(60, 20);
-
     padding-left: 0;
 
     @include tablet-above {
@@ -50,6 +49,14 @@
     &-info {
       display: grid;
       row-gap: fluid(16, 6);
+
+      // section"podcasts-title"
+      &:has(.card__rating-view) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 1rem;
+      }
     }
   }
 
@@ -83,6 +90,19 @@
 
       @include mobile-above {
         grid-template-columns: auto 1fr;
+      }
+    }
+
+    // section"podcasts-title"
+    &--3-cols {
+      gap: fluid(50, 20) rem(20);
+
+      @include laptop {
+        column-gap: rem(16);
+      }
+
+      @include mobile-above {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   }
