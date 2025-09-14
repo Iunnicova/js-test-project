@@ -12,6 +12,11 @@
     @include laptop {
       border-radius: rem(10);
     }
+
+    // section"podcasts-videos-title"
+    &--small {
+      height: fluid(290, 208);
+    }
   }
 
   //внутренности проигрывателя
@@ -24,13 +29,14 @@
     column-gap: 1rem; //элементы что бы не слиплись при сужении
     padding: rem(30);
     transition-duration: var(
-      --transition-duration); //плавность интерактивным элементам
+      --transition-duration
+    ); //плавность интерактивным элементам
 
-      // section"podcasts-title"
-      &--center {
-        justify-content: center;
-        align-items: center;
-      }
+    // section"podcasts-title"
+    &--center {
+      justify-content: center;
+      align-items: center;
+    }
 
     &:not(.is-active) {
       //нажимаешь на плей панелька исчезает а когда ставим на паузу панелька появляется

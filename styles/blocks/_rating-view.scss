@@ -9,7 +9,7 @@
   background-color: var(--color-dark);
   border: var(--border);
   border-radius: rem(100);
-
+  background-repeat: no-repeat;
   @include laptop {
     column-gap: rem(4);
     padding: rem(8) rem(12);
@@ -21,12 +21,12 @@
 
     @include square(var(--size));
 
-    //6:06 выгружаем меняя в фигме цвет на серый
-    background: url('../../icons/star_gray.svg') center/contain no-repeat;
+    //6:06 выгружаем звездочку меняя в фигме цвет на серый
+    background: url('../../icons/star_gray.svg') center/contain no-repeat; //убрать повторения
 
-    //активная желтая
+    //активная желтая звездочка
     &.is-active {
-      background: url('../../icons/star_yellow.svg');
+      background: url('../../icons/star_yellow.svg') center/contain no-repeat; //убрать повторения картинки звездочек
     }
 
     @include laptop {

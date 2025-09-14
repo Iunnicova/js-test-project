@@ -1543,6 +1543,7 @@ button[aria-label]::before {
 .bordered-grid--3-cols {
   --columns: 3;
   --itemPaddingX: 3.125rem;
+  column-gap: calc(var(--itemPaddingX) * 2);
 }
 @media (width <= 90.06125rem) {
   .bordered-grid--3-cols {
@@ -1559,8 +1560,16 @@ button[aria-label]::before {
 }
 @media (width > 63.99875rem) {
   .bordered-grid--3-cols .bordered-grid__item:nth-child(3n-2), .bordered-grid--3-cols .bordered-grid__item:nth-child(3n-1) {
-    padding-right: var(--itemPaddingX);
-    border-right: var(--border);
+    position: relative;
+  }
+  .bordered-grid--3-cols .bordered-grid__item:nth-child(3n-2)::after, .bordered-grid--3-cols .bordered-grid__item:nth-child(3n-1)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(100% + var(--itemPaddingX));
+    width: 0.0625rem;
+    height: 100%;
+    background-color: var(--color-dark-15);
   }
   .bordered-grid--3-cols .bordered-grid__item:nth-child(3n-1) {
     position: relative;
@@ -1576,9 +1585,6 @@ button[aria-label]::before {
     height: 0.0625rem;
     background-color: var(--color-dark-15);
   }
-  .bordered-grid--3-cols .bordered-grid__item:nth-child(3n-1), .bordered-grid--3-cols .bordered-grid__item:nth-child(3n) {
-    padding-left: var(--itemPaddingX);
-  }
 }
 .bordered-grid__item {
   padding-block: var(--itemPaddingY);
@@ -1591,6 +1597,7 @@ button[aria-label]::before {
   background-color: var(--color-dark);
   border: var(--border);
   border-radius: 6.25rem;
+  background-repeat: no-repeat;
 }
 @media (width <= 90.06125rem) {
   .rating-view {
@@ -1605,7 +1612,7 @@ button[aria-label]::before {
   background: url("../../icons/star_gray.svg") center/contain no-repeat;
 }
 .rating-view__star.is-active {
-  background: url("../../icons/star_yellow.svg");
+  background: url("../../icons/star_yellow.svg") center/contain no-repeat;
 }
 @media (width <= 90.06125rem) {
   .rating-view__star {
@@ -1917,8 +1924,11 @@ button[aria-label]::before {
 }
 
 .video-card {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
   row-gap: 1.875rem;
+  height: 100%;
 }
 @media (width <= 90.06125rem) {
   .video-card {
@@ -1928,6 +1938,10 @@ button[aria-label]::before {
 .video-card__body {
   display: grid;
   row-gap: clamp(0.25rem, 0.1544117647rem + 0.3921568627vw, 0.625rem);
+  flex-grow: 1;
+}
+.video-card__player {
+  width: 100%;
 }
 
 .video-player {
@@ -1943,6 +1957,9 @@ button[aria-label]::before {
   .video-player__video {
     border-radius: 0.625rem;
   }
+}
+.video-player__video--small {
+  height: clamp(13rem, 11.693627451rem + 5.3594771242vw, 18.125rem);
 }
 .video-player__panel {
   position: absolute;
