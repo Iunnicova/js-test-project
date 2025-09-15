@@ -86,6 +86,7 @@
   &__actions {
     padding-block: fluid(50, 20);
 
+    //******
     @include mobile {
       place-items: center;
     }

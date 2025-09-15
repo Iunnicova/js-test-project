@@ -77,7 +77,6 @@
         &:nth-child(3n - 2),
         &:nth-child(3n - 1) {
           position: relative;
-         
 
           &::after {
             content: '';
@@ -97,7 +96,7 @@
 
         //выбирает элементы во 2 колонке
         // &:nth-child(3n - 1) {
-          
+
         // }
       }
     }
