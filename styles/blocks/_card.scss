@@ -106,8 +106,8 @@
       }
     }
 
-     //!section "reports-title" формируем колонки 'Quantum Computing Whitepaper'
-     &--3-cols-alt {
+    //!section "reports-title" формируем колонки 'Quantum Computing Whitepaper'
+    &--3-cols-alt {
       grid-template-columns: repeat(3, 1fr);
       gap: fluid(50, 20) rem(20);
 
@@ -142,7 +142,7 @@
         'other link';
       align-items: center;
       column-gap: rem(20);
-      row-gap: fluid(14, 10); 
+      row-gap: fluid(14, 10);
     }
 
     //!section "reports-title"
@@ -155,14 +155,14 @@
           grid-area: initial;
         }
       }
-     }
+    }
 
-     //!section "reports-title"
-     &.tile {
+    //!section "reports-title"
+    &.tile {
       @include mobile-s {
- padding: rem(20);
+        padding: rem(20);
       }
-     }
+    }
 
     //!section 'resources-title'
     &--wide {
@@ -170,9 +170,9 @@
     }
 
     //!section "reports-title"
-     &--wide-on-mobile-s {
+    &--wide-on-mobile-s {
       @include mobile-s {
-grid-column: -1 / 1; //растянем элемент на все колонки
+        grid-column: -1 / 1; //растянем элемент на все колонки
       }
     }
 
@@ -199,13 +199,11 @@ grid-column: -1 / 1; //растянем элемент на все колонк�
       grid-area: link;
     }
 
-     //!section "reports-title"
-      &-description {
+    //!section "reports-title"
+    &-description {
       @include mobile-s {
         font-size: rem(14);
       }
-    } 
+    }
   }
-
-
 }
