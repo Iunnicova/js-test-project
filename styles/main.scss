@@ -83,3 +83,6 @@
 @use 'blocks/blog-details';
 @use 'blocks/table-of-contents';
 @use 'blocks/expandable-content';
+
+// подключаем файлы styles => blocks => <section class="section tabs" aria-labelledby="reports-title" data-js-tabs
+@use 'blocks/report-card';

@@ -75,7 +75,7 @@
   overflow: hidden !important;
 }
 
-//для вертикальной линии которая выходит за пределы в section "reviews-title" и "videos-title"
+//!для вертикальной линии которая выходит за пределы в section "reviews-title" и "videos-title"
 @mixin full-vw-centered-line(
   $property: top,
   $left: 50%,

@@ -1,6 +1,6 @@
 //класс для основной логики группы табов
 
-const rootSelector = '[data-js-tabs]'; //блок "blog-title"
+const rootSelector = '[data-js-tabs]'; //!section "blog-title"
 
 class Tabs {
   //поле свойства с css селекторами

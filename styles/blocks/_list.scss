@@ -2,6 +2,7 @@
 
 //добавилась рамка всем кроме последнего
 .list {
+  &, //черточка
   &__item {
     &:not(:last-child) {
       border-bottom: var(--border);

@@ -1,16 +1,15 @@
 // три карточки в ряд
 @use '../helpers' as *;
-
+// !section секции "blog-details-title"
 .news {
-  display: grid; // блок с картинки в секции "blog-details-title"
-  row-gap: rem(80); // блок с картинки в секции "blog-details-title"
+  display: grid; 
+  row-gap: rem(80); 
   padding-block: fluid(80, 40);
 
   @include laptop {
-    row-gap: rem(40); // блок с картинки в секции "blog-details-title"
+    row-gap: rem(40); 
   }
 
-  // блок с картинки в секции "blog-details-title"
   &__header {
     display: flex;
     justify-content: space-between;

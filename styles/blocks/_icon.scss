@@ -34,14 +34,14 @@
     }
   }
 
-  //блок 'resources-title'
+  //!section 'resources-title'
   &--yellow-eye {
     &::after {
       background-image: url('../../icons/eye_yellow.svg');
     }
   }
 
-  //стрелка в кнопке section "blog-details-title"
+  //!стрелка в кнопке section "blog-details-title"
   &--gray-arrow-down {
     &::after {
       background-image: url('../../icons/arrow-down_gray.svg');

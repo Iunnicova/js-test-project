@@ -50,7 +50,7 @@
       display: grid;
       row-gap: fluid(16, 6);
 
-      // section"podcasts-title"
+      // !section"podcasts-title"
       &:has(.card__rating-view) {
         display: flex;
         justify-content: space-between;
@@ -80,7 +80,7 @@
       }
     }
 
-    //блок 'resources-title'
+    //!section 'resources-title'
     &--2-cols-alt {
       gap: rem(30) rem(20);
 
@@ -93,7 +93,7 @@
       }
     }
 
-    // section"podcasts-title"
+    //! section"podcasts-title"
     &--3-cols {
       gap: fluid(50, 20) rem(20);
 
@@ -105,6 +105,20 @@
         grid-template-columns: repeat(3, 1fr);
       }
     }
+
+     //!section "reports-title" формируем колонки 'Quantum Computing Whitepaper'
+     &--3-cols-alt {
+      grid-template-columns: repeat(3, 1fr);
+      gap: fluid(50, 20) rem(20);
+
+      @include laptop {
+        column-gap: rem(16);
+      }
+
+      @include mobile-s {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   }
 
   //что бы при добавлении карточек все было красиво лучше через flex
@@ -114,12 +128,12 @@
     justify-content: start;
     row-gap: fluid(20, 4);
 
-    //блок 'resources-title'
+    //!section 'resources-title'
     &:has(> *:only-child) {
       justify-content: center;
     }
 
-    //блок 'resources-title'
+    //!section 'resources-title'
     &:has(.card__cell-link) {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -128,14 +142,41 @@
         'other link';
       align-items: center;
       column-gap: rem(20);
+      row-gap: fluid(14, 10); 
     }
 
-    //блок 'resources-title'
+    //!section "reports-title"
+    //если нет у яйчейки класса title то на мобильной версии будем сбрасовать параметры сетки
+    &:not(.title) {
+      @include mobile-s {
+        grid-template: initial;
+
+        .card__cell-link {
+          grid-area: initial;
+        }
+      }
+     }
+
+     //!section "reports-title"
+     &.tile {
+      @include mobile-s {
+ padding: rem(20);
+      }
+     }
+
+    //!section 'resources-title'
     &--wide {
-      grid-column: -1/1; //растянем элемент на все колонки
+      grid-column: -1 / 1; //растянем элемент на все колонки
     }
 
-    //блок 'resources-title'
+    //!section "reports-title"
+     &--wide-on-mobile-s {
+      @include mobile-s {
+grid-column: -1 / 1; //растянем элемент на все колонки
+      }
+    }
+
+    //!section 'resources-title'
     &-image {
       width: 100%;
       height: fluid(332, 169);
@@ -147,15 +188,24 @@
       }
     }
 
-    //блок 'resources-title' меняем текст h4
+    //!section 'resources-title' меняем текст h4
     &-subtitle {
       font: inherit; //«возьми шрифт у родителя»
       color: inherit;
     }
 
-    //блок 'resources-title' от &:has(.card__cell-link)
+    //!section 'resources-title' от &:has(.card__cell-link)
     &-link {
       grid-area: link;
     }
+
+     //!section "reports-title"
+      &-description {
+      @include mobile-s {
+        font-size: rem(14);
+      }
+    } 
   }
+
+
 }

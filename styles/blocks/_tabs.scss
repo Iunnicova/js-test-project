@@ -22,6 +22,28 @@
     @include tablet {
       width: max-content; // управляет шириной элемента в зависимости от его содержимого
     }
+
+    //!section "reports-title"
+    &--compact {
+      display: inline-flex; //переопределяем основную сетку грид
+      column-gap: rem(10);
+      padding: rem(10);
+      background-color: var(--color-dark);
+      border-radius: rem(10);
+    }
+    //обращаемся к кнопкам
+    .tabs__button {
+      padding-block: rem(18);
+
+      //активная кнопка
+      &.is-active {
+        background-color: var(--color-dark-15);
+      }
+
+      @include laptop {
+        padding-block: rem(14);
+      }
+    }
   }
 
   &__button {

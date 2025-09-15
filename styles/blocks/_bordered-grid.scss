@@ -13,7 +13,7 @@
   &--2-cols {
     --columns: 2;
 
-    // section-"videos-title"
+    //! section-"videos-title"
     --itemPaddingX: #{rem(80)}; //значение горизонтальных отступов
 
     @include laptop {
@@ -32,7 +32,7 @@
 
         //четные элементы 2,4,6 видео
         &:nth-child(even) {
-          //горизотальная линия section-"videos-title" @mixin full-vw-centered-line: bottom, $left: 50%, $right: auto, $translate: -50%
+          //!горизотальная линия section-"videos-title" @mixin full-vw-centered-line: bottom, $left: 50%, $right: auto, $translate: -50%
           @include full-vw-centered-line(bottom, auto, 100%, 50%);
           padding-left: var(--itemPaddingX);
         }
