@@ -6,7 +6,7 @@
 .button {
   display: inline-flex;
   justify-content: center;
-  // min-width: rem(137);
+  min-width: rem(137);
   padding: rem(18) rem(24);
   font-size: rem(18);
   color: var(--color-gray-60);
@@ -17,6 +17,7 @@
 
   //версия планшет
   @include laptop {
+    min-width: rem(103);
     padding: rem(14) rem(20);
     font-size: rem(14);
     border-radius: rem(8);
