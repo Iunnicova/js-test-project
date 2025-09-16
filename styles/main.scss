@@ -86,3 +86,13 @@
 
 // подключаем файлы styles => blocks => <section class="section tabs" aria-labelledby="reports-title" data-js-tabs
 @use 'blocks/report-card';
+
+// подключаем файлы styles => blocks => <section class="contacts" aria-labelledby="contacts-title">
+@use 'blocks/contacts-card';
+@use 'blocks/field';
+@use 'blocks/select';
+@use 'blocks/checkbox';
+@use 'blocks/feedback-form';
+@use 'blocks/accordion-group';
+@use 'blocks/contacts';
+@use 'blocks/accrodion';
