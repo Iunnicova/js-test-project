@@ -33,6 +33,9 @@
   //переменная для рамки(серая черта)
   --border: #{rem(1)} solid var(--color-dark-15);
 
+  //переменная для добавления тени рамки контактов при наведении First Name 9:55
+  --shadow: 0 0 0 #{rem(4)} #383842;;
+
   //семейство шрифтов
   --font-family-base: 'Inter', sans-serif;
   --font-family-accent: 'Kumbh Sans', sans-serif;
