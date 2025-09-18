@@ -1,5 +1,5 @@
 // Логика маски для полей ввода.
-// Используем библиотеку "imaskjs" (подключена через CDN).
+// Используем библиотеку "imaskjs cdn".
 // Документация: https://imask.js.org
 
 const rootSelector = '[data-js-input-mask]'; // Селектор для элементов с атрибутом data-js-input-mask
