@@ -1,1 +1,56 @@
+// пипка 9:58
+
 @use '../helpers' as *;
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  column-gap: rem(10);
+  color: var(--color-light);
+
+  @include laptop {
+    column-gap: rem(6);
+  }
+
+  @include hover {
+    color: var(--color-accent); //эфект наведения на весь чекбокс
+
+    .checkbox__input {
+      border-color: var(--color-accent);
+    }
+  }
+
+  &__input {
+    --size: #{rem(28)}; //размер пипки
+
+    @include square(var(--size));
+    @include flex-center; //центрируем галочку в пипке
+
+    appearance: none; //убираем пипку что позволяет ее стилизовать по своему усмотрению
+    margin: 0; //убираем марджины
+    background-color: var(--color-dark-10);
+    border: var(--border);
+    border-radius: rem(4);
+
+    @include laptop {
+      --size: #{rem(24)};
+    }
+
+    &:not(:checked) {
+      &::after {
+        @include hide; //скрываем галочку когда чекбокс не активен
+      }
+    }
+
+    &:user-invalid {
+      border-color: var(--color-red);
+    }
+
+    //добавляем галочку &::after можно добавлять если есть 'appearance: none';
+    &::after {
+      content: '✔'; //скачиваем галочку с интернета
+      color: var(--color-likeCount);
+      transition-duration: var(--transition-duration);
+    }
+  }
+}
