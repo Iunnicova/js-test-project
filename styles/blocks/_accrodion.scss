@@ -1,1 +1,86 @@
 @use '../helpers' as *;
+
+//аккордион на scss без js
+
+.accordion {
+  //превратить плюсик в минус
+  &__details {
+    &[open] {
+      .accordion__title {
+        &::before,
+        &::after {
+          background-color: var(--color-light);
+        }
+
+        &::after {
+          rotate: 0deg; //убираем палочку
+        }
+      }
+
+      //обращаемся к соседнему элементу classa аккордион '.accordion__content'
+      // '+' — селектор смежного соседа, выбирает элемент, который идёт сразу после указанного.
+      & + .accordion__content {
+        grid-template-rows: 1fr; //закрываем открываем элемент
+      }
+    }
+  }
+
+  //убрать стрелочку в аккордионе она по умолчанию там есть
+  &__summary {
+    color: var(--color-light);
+    list-style: none; //уберет не во всех браузерах
+
+    @include hover {
+      color: var(--color-accent); //добавляем ховер эфект при наведении
+    }
+
+    &::-webkit-details-marker {
+      display: none; // уберет работает для браузера firefox и safari
+    }
+  }
+
+  //рисуем значки для открытия и закрытия аккордиона
+  &__title {
+    position: relative;
+    color: inherit; //наследовать цвет текста у родителя &__summary
+    transition-duration: var(--transition-duration); //плавность наведения
+    padding-right: rem(50);
+
+    &::before,
+    &::after {
+      @include abs-y;
+
+      content: '';
+      right: 0;
+      width: rem(16);
+      height: rem(2);
+      background-color: var(--color-accent);
+      border-radius: 1rem;
+      transition-duration: var(--transition-duration);
+    }
+
+    &::after {
+      rotate: 90deg; //поворачиваем палочку на 90 градусов из горизонтальной в вертикальную
+    }
+  }
+
+  //логика раскрытия и закрытия аккордиона на scss
+  &__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition-duration: 0.3s; //плавность открытия закрытия
+
+    &-inner {
+      overflow: hidden; //обрезает (скрывает) всё содержимое, выходящее за пределы блока
+    }
+
+    //внутрянка табличек
+    &-body {
+      --offsetTop: #{fluid(24, 16)}; //новая переменная
+
+      margin-top: var(--offsetTop);
+      padding-top: var(--offsetTop);
+      border-top: var(--border);
+    }
+  }
+}
