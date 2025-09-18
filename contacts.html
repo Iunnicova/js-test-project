@@ -10,6 +10,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>js-test-project | Contacts</title>
     <link rel="stylesheet" href="./styles/main.css" />
+    <!-- 15 строка подключаем библиотеку маска для поля ввода телефона, чтобы правильно работало в конце пишем "defer"
+    СТРОГО ПЕРЕД ОСНОВНЫМ script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js defer"></script>
+
+    <!-- ОСНОВНОЙ СКРИПТ -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js"
       defer
@@ -308,11 +313,93 @@
                         >Phone Number</label
                       >
                       <div class="field__body">
-                        <div class="select">SELECT</div>
+
+                        <div class="select" data-js-select>
+                        <label
+                          class="select__label visually-hidden"
+                          id="phone-number-prefix-select-label"
+                          for="phoneNumberPrefix"
+                        >
+                          Phone number prefix
+                        </label>
+                        <select
+                          class="select__original-control field__control"
+                          id="phoneNumberPrefix"
+                          tabindex="-1"
+                          data-js-select-original-control
+                        >
+                          <option value="+7" selected>+7</option>
+                          <option value="+1">+1</option>
+                          <option value="+2">+2</option>
+                          <option value="+3">+3</option>
+                        </select>
+                        <div class="select__body">
+                          <div
+                            class="select__button field__control"
+                            tabindex="0"
+                            role="combobox"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-controls="phone-number-prefix-select-dropdown"
+                            aria-labelledby="phone-number-prefix-select-label"
+                            data-js-select-button
+                          >
+                            +7
+                          </div>
+                          <div
+                            class="select__dropdown"
+                            id="phone-number-prefix-select-dropdown"
+                            role="listbox"
+                            aria-labelledby="phone-number-prefix-select-label"
+                            data-js-select-dropdown
+                          >
+                            <div
+                              class="select__option is-selected is-current"
+                              id="phone-number-prefix-select-option-1"
+                              role="option"
+                              aria-selected="true"
+                              data-js-select-option
+                            >
+                              +7
+                            </div>
+                            <div
+                              class="select__option"
+                              id="phone-number-prefix-select-option-2"
+                              role="option"
+                              aria-selected="false"
+                              data-js-select-option
+                            >
+                              +1
+                            </div>
+                            <div
+                              class="select__option"
+                              id="phone-number-prefix-select-option-3"
+                              role="option"
+                              aria-selected="false"
+                              data-js-select-option
+                            >
+                              +2
+                            </div>
+                            <div
+                              class="select__option"
+                              id="phone-number-prefix-select-option-4"
+                              role="option"
+                              aria-selected="false"
+                              data-js-select-option
+                            >
+                              +3
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- ДОБАВЛЯЕМ МАСКУ ДЛЯ ВВОДА ТЕЛЕФОНА 10:16-->
+                       <!-- добавляем патер ввода  data-js-input-mask="(000) 000-00-00" -->
                         <input
                           class="field__control"
                           id="phoneNumber"
                           placeholder="(999) 999-99-99"
+                           data-js-input-mask="(000) 000-00-00"
                         />
                       </div>
                     </div>
