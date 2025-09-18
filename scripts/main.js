@@ -8,8 +8,11 @@ import VideoPlayerCollection from './VideoPlayer.js';
 
 import ExpandableContentCollection from './ExpandableContent.js';
 
+import InputMaskCollection from './InputMask.js';
+
 //инициализируем,запускаем классы
 new Header();
 new TabsCollection();
 new VideoPlayerCollection();
 new ExpandableContentCollection();
+new InputMaskCollection();
