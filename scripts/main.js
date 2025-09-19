@@ -10,9 +10,12 @@ import ExpandableContentCollection from './ExpandableContent.js';
 
 import InputMaskCollection from './InputMask.js';
 
+import SelectCollection from './Select.js';
+
 //инициализируем,запускаем классы
 new Header();
 new TabsCollection();
 new VideoPlayerCollection();
 new ExpandableContentCollection();
 new InputMaskCollection();
+new SelectCollection();

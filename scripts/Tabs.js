@@ -1,8 +1,10 @@
 //класс для основной логики группы табов
 
+import BaseComponent from './BaseComponent.js';
+
 const rootSelector = '[data-js-tabs]'; //!section "blog-title"
 
-class Tabs {
+class Tabs extends BaseComponent {
   //поле свойства с css селекторами
   selectors = {
     root: rootSelector, //главный контейнер табов
@@ -22,6 +24,7 @@ class Tabs {
   };
 
   constructor(rootElement) {
+    super(); //расширение класса BaseComponent без него работать не будет расширение классов extends BaseComponent
     // Запоминаем главный контейнер табов (элемент с data-js-tabs)
     this.rootElement = rootElement;
 
@@ -48,25 +51,6 @@ class Tabs {
 
     // Привязываем обработчики событий( клики по кнопкам)
     this.bindEvents();
-  }
-
-  getProxyState(initialState) {
-    // Создаём Proxy для объекта состояния, чтобы автоматически отслеживать изменения
-    return new Proxy(initialState, {
-      // get — вызывается при чтении свойства объекта
-      get: (target, prop) => {
-        return target[prop]; // Возвращаем текущее значение свойства
-      },
-
-      //set — вызывается при записи нового значения в свойство объекта
-      set: (target, prop, value) => {
-        target[prop] = value; // Сохраняем новое значение в объект состояния
-
-        this.updateUI(); // После изменения состояния автоматически обновляем интерфейс
-
-        return true; // Сообщаем Proxy, что запись успешна
-      }
-    });
   }
 
   updateUI() {
