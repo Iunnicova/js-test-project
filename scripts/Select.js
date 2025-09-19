@@ -4,7 +4,7 @@
 // Логика открытия/закрытия и работы кастомного Select
 
 import BaseComponent from './BaseComponent.js';
-// import MatchMedia from './MatchMedia.js'
+import MatchMedia from './MatchMedia.js'
 
 const rootSelector = '[data-js-select]';
 
