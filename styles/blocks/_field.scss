@@ -56,6 +56,11 @@
     &::placeholder {
       color: var(--color-dark-40);
     }
+
+    //стилилизация обязательных полей не заполнено
+    &:user-invalid {
+      border-color: var(--color-likeCount);
+    }
   }
 
   //большая рамка 'Message'

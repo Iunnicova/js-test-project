@@ -42,14 +42,15 @@
       }
     }
 
+    //стилилизация обязательных полей не заполнено
     &:user-invalid {
-      border-color: var(--color-red);
+      border-color: var(--color-likeCount);
     }
 
     //добавляем галочку &::after можно добавлять если есть 'appearance: none';
     &::after {
       content: '✔'; //скачиваем галочку с интернета
-      color: var(--color-likeCount);
+      color: var(--color-light);
       transition-duration: var(--transition-duration);
     }
   }

@@ -1,10 +1,11 @@
 // 10:49
 //логика открытия закрытия Phone Number
+//!с доработкай большего функционала работы с клавиатурой можно на сайте  https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/
 
 // Логика открытия/закрытия и работы кастомного Select
 
 import BaseComponent from './BaseComponent.js';
-import MatchMedia from './MatchMedia.js'
+import MatchMedia from './MatchMedia.js';
 
 const rootSelector = '[data-js-select]';
 
@@ -77,36 +78,57 @@ class Select extends BaseComponent {
     this.bindEvents(); // вешаем все события
   }
 
-  // Обновление UI на основе состояния
+  //! Обновление UI на основе состояния
   updateUI() {
+    // 🔹 Достаём из state три свойства:
+    // - isExpanded → открыт ли сейчас выпадающий список
+    // - currentOptionIndex → индекс текущей активной опции
+    // - selectedOptionElement → DOM-элемент выбранной опции
     const { isExpanded, currentOptionIndex, selectedOptionElement } =
       this.state;
 
+    // 🔹 Берём текст выбранной опции (например, "Phone Number")
+    // и обрезаем пробелы по краям
     const newSelectedOptionValue = selectedOptionElement.textContent.trim();
 
-    // Обновляем скрытый <select>
+    //! Когда пользователь выбирает пункт в кастомном выпадающем списке, эта функция обновляет значение у настоящего <select>
     const updateOriginalControl = () => {
       this.originalControlElement.value = newSelectedOptionValue;
     };
 
-    // Обновляем кастомную кнопку
+    //! Обновляем кастомную кнопку
     const updateButton = () => {
+      //  Вставляем в кнопку текст выбранной опции
+      // Например: "Phone Number"
       this.buttonElement.textContent = newSelectedOptionValue;
+
+      // Добавляем или убираем CSS-класс "is-expanded"
+      // true → выпадающий список открыт
+      // false → список закрыт
       this.buttonElement.classList.toggle(
         this.stateClasses.isExpanded,
         isExpanded
       );
+
+      // Обновляем aria-атрибут "aria-expanded"
+      // Нужен для доступности (screen reader понимает, открыт ли список)
       this.buttonElement.setAttribute(
         this.stateAttributes.ariaExpanded,
         isExpanded
       );
+
+      // Обновляем aria-атрибут "aria-activedescendant"
+      // Сюда записывается id активной (текущей) опции
+      // Это помогает screen reader-ам озвучивать правильный пункт при навигации
       this.buttonElement.setAttribute(
         this.stateAttributes.ariaActiveDescendant,
         this.optionElements[currentOptionIndex].id
       );
     };
 
-    // Обновляем dropdown (видимость)
+    //! Обновляем dropdown (видимость)
+    // Если isExpanded === true → к dropdownElement добавляется класс is-expanded.
+    // Если isExpanded === false → класс is-expanded убирается.
     const updateDropdown = () => {
       this.dropdownElement.classList.toggle(
         this.stateClasses.isExpanded,
@@ -114,17 +136,26 @@ class Select extends BaseComponent {
       );
     };
 
-    // Обновляем каждую опцию
+    //! Обновляем каждую опцию
     const updateOptions = () => {
+      // Перебираем все опции (каждый элемент в dropdown)
       this.optionElements.forEach((optionElement, index) => {
+        // Проверяем, является ли эта опция текущей (подсвеченная стрелками/фокусом)
         const isCurrent = currentOptionIndex === index;
+
+        // Проверяем, является ли эта опция выбранной (выбранное значение)
         const isSelected = selectedOptionElement === optionElement;
 
+        // Добавляем/убираем класс "is-current" (для визуального выделения текущей опции)
         optionElement.classList.toggle(this.stateClasses.isCurrent, isCurrent);
+
+        // Добавляем/убираем класс "is-selected" (чекбокс ✔ у выбранного элемента)
         optionElement.classList.toggle(
           this.stateClasses.isSelected,
           isSelected
         );
+
+        // Устанавливаем атрибут aria-selected (для доступности — скринридеры поймут, какая опция выбрана)
         optionElement.setAttribute(
           this.stateAttributes.ariaSelected,
           isSelected
@@ -132,7 +163,7 @@ class Select extends BaseComponent {
       });
     };
 
-    // Запускаем обновления
+    //! вызываем
     updateOriginalControl();
     updateButton();
     updateDropdown();
@@ -171,13 +202,25 @@ class Select extends BaseComponent {
     );
   }
 
-  // Настройка tabIndex: на мобилках используется нативный select, на десктопе — кастомный
+  //! Настройка tabIndex: на мобилках используется нативный select, на десктопе — кастомный
   updateTabIndexes(isMobileDevice = MatchMedia.mobile.matches) {
+    // 👆 Функция получает параметр isMobileDevice.
+    // Если его не передали, по умолчанию берётся MatchMedia.mobile.matches
+    // (true — мобильное устройство, false — десктоп).
+
     this.originalControlElement.tabIndex = isMobileDevice ? 0 : -1;
+    // 👉 Если это мобильное устройство → ставим tabindex=0
+    // (оригинальный <select> будет доступен для табуляции и может открываться).
+    // Если это НЕ мобилка → tabindex=-1
+    // (оригинальный <select> скрыт от клавиатуры, им нельзя пользоваться напрямую).
+
     this.buttonElement.tabIndex = isMobileDevice ? -1 : 0;
+    // 👉 Наоборот для кастомной кнопки:
+    // На мобилке → tabindex=-1 (нельзя фокусироваться на кастомной кнопке).
+    // На десктопе → tabindex=0 (можно попасть в кастомный селект с клавиатуры).
   }
 
-  // Проверяем, нужно ли открыть список (например, при нажатии стрелок)
+  //! Проверяем, нужно ли открыть список (например, при нажатии стрелок)
   get isNeedToExpand() {
     const isButtonFocused = document.activeElement === this.buttonElement;
     return !this.state.isExpanded && isButtonFocused;
@@ -218,48 +261,67 @@ class Select extends BaseComponent {
     }
   };
 
-  // Управление клавиатурой
+  //! УПРАВЛЕНИЕ КЛАВИАТУРОЙ
+
+  //* Обработка клавиши "стрелка вверх"
   onArrowUpKeyDown = () => {
+    // Если список закрыт, но кнопка в фокусе → открываем dropdown
     if (this.isNeedToExpand) {
       this.expand();
       return;
     }
+
+    // Иначе просто двигаем выделение на один элемент вверх
     if (this.state.currentOptionIndex > 0) {
       this.state.currentOptionIndex--;
     }
   };
 
+  //* Обработка клавиши "стрелка вниз"
   onArrowDownKeyDown = () => {
+    // Если список закрыт, но кнопка в фокусе → открываем dropdown
     if (this.isNeedToExpand) {
       this.expand();
       return;
     }
+
+    // Иначе двигаем выделение на один элемент вниз
     if (this.state.currentOptionIndex < this.optionElements.length - 1) {
       this.state.currentOptionIndex++;
     }
   };
 
+  //* Обработка клавиши "пробел"
   onSpaceKeyDown = () => {
+    // Если список закрыт и кнопка в фокусе → открываем dropdown
     if (this.isNeedToExpand) {
       this.expand();
       return;
     }
+
+    // Иначе выбираем текущий элемент и закрываем dropdown
     this.selectCurrentOption();
     this.collapse();
   };
 
+  //* Обработка клавиши "Enter"
   onEnterKeyDown = () => {
+    // Если список закрыт и кнопка в фокусе → открываем dropdown
     if (this.isNeedToExpand) {
       this.expand();
       return;
     }
+
+    // Иначе выбираем текущий элемент и закрываем dropdown
     this.selectCurrentOption();
     this.collapse();
   };
 
+  //* Главный обработчик нажатия клавиш
   onKeyDown = (event) => {
     const { code } = event;
 
+    // Сопоставляем код клавиши с нужным методом
     const action = {
       ArrowUp: this.onArrowUpKeyDown,
       ArrowDown: this.onArrowDownKeyDown,
@@ -267,13 +329,14 @@ class Select extends BaseComponent {
       Enter: this.onEnterKeyDown
     }[code];
 
+    // Если нажата "нужная" клавиша
     if (action) {
-      event.preventDefault();
-      action();
+      event.preventDefault(); // отменяем стандартное поведение (например, скролл страницы пробелом)
+      action(); // запускаем соответствующий метод
     }
   };
 
-  // Переключение tabIndex при изменении размера экрана
+  //!метод следит за изменением ширины экрана и "переключает управление" между нативным селектом и кастомным UI.
   onMobileMatchMediaChange = (event) => {
     this.updateTabIndexes(event.matches);
   };
@@ -284,12 +347,26 @@ class Select extends BaseComponent {
       this.optionElements[this.originalControlElement.selectedIndex];
   };
 
-  // Подписка на события
+  //! Подписка на события
   bindEvents() {
+    //  Подписываемся на событие "change" у медиа-запроса
+    // Когда ширина экрана пересекает 767.98px — вызывается метод onMobileMatchMediaChange
     MatchMedia.mobile.addEventListener('change', this.onMobileMatchMediaChange);
+
+    //  При клике на кнопку селекта (тот самый кастомный <button>)
+    // будет вызываться метод onButtonClick (открыть/закрыть список)
     this.buttonElement.addEventListener('click', this.onButtonClick);
+
+    //  Отслеживаем клики по документу
+    // чтобы понять, кликнули ли ВНЕ селекта и, если да, — закрыть его
     document.addEventListener('click', this.onClick);
+
+    //  Добавляем обработку клавиатуры (стрелки, Enter, Space)
+    // это делает селект доступным для навигации без мышки
     this.rootElement.addEventListener('keydown', this.onKeyDown);
+
+    //  Отслеживаем изменение значения у оригинального <select>
+    // если его поменяли (например, с мобилки), обновляем состояние
     this.originalControlElement.addEventListener(
       'change',
       this.onOriginalControlChange
@@ -297,7 +374,7 @@ class Select extends BaseComponent {
   }
 }
 
-// Коллекция всех кастомных select'ов на странице
+// Коллекция всех кастомных select'ов на странице у всех js одинаковый
 class SelectCollection {
   constructor() {
     this.init();

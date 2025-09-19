@@ -32,6 +32,18 @@
     @include mobile {
       padding-block: rem(14); //вверх низ
     }
+
+    @include mobile-s {
+      font-size: rem(11);
+    }
+
+    &-link {
+      .icon {
+        @include mobile-s {
+          column-gap: rem(5);
+        }
+      }
+    }
   }
 
   &__body {
